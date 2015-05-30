@@ -41,6 +41,7 @@
         "doctrine/dbal": "~2.4",
         "doctrine/orm": "~2.4",
         "phpoffice/phpexcel": "~1.8",
+        "symfony/console": "~2.5",
         "symfony/property-access": "2.3",
         "symfony/validator": "~2.3"
     },
