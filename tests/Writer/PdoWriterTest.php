@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\PdoWriter;
+use Port\Writer\PdoWriter;
 
 class PdoWriterTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,7 +52,7 @@ class PdoWriterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\WriterException
+     * @expectedException \Port\Exception\WriterException
      */
     public function testWriteTooManyValues()
     {
@@ -63,7 +63,7 @@ class PdoWriterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\WriterException
+     * @expectedException \Port\Exception\WriterException
      */
     public function testWriteToNonexistentTable()
     {
@@ -76,7 +76,7 @@ class PdoWriterTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests PDO instance with silent errors.
      *
-     * @expectedException \Ddeboer\DataImport\Exception\WriterException
+     * @expectedException \Port\Exception\WriterException
      */
     public function testStatementCreateFailureWithNoException()
     {
@@ -91,7 +91,7 @@ class PdoWriterTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests PDO instance with silent errors. First inert prepares the statement, second creates an exception.
      *
-     * @expectedException \Ddeboer\DataImport\Exception\WriterException
+     * @expectedException \Port\Exception\WriterException
      */
     public function testWriteFailureWithNoException()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\ObjectConverter;
+use Port\ValueConverter\ObjectConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz
@@ -44,7 +44,7 @@ class ObjectConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Ddeboer\DataImport\Exception\UnexpectedTypeException
+     * @expectedException Port\Exception\UnexpectedTypeException
      */
     public function testConvetANonObject()
     {

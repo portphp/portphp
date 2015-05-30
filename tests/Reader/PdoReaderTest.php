@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\PdoReader;
+use Port\Reader\PdoReader;
 // use Doctrine\DBAL\Configuration;
 // use Doctrine\DBAL\DriverManager;
 // use Doctrine\DBAL\Platforms\SqlitePlatform;

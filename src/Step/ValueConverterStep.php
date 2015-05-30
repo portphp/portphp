@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Step;
+namespace Port\Step;
 
-use Ddeboer\DataImport\Step;
+use Port\Step;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 /**

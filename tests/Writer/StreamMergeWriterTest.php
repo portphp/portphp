@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\StreamMergeWriter;
+use Port\Writer\StreamMergeWriter;
 
 class StreamMergeWriterTest extends AbstractStreamWriterTest
 {
@@ -18,12 +18,12 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testItIsInstantiable()
     {
-        $this->assertInstanceOf('Ddeboer\DataImport\Writer\StreamMergeWriter', $this->writer);
+        $this->assertInstanceOf('Port\Writer\StreamMergeWriter', $this->writer);
     }
 
     public function testItIsAStreamWriter()
     {
-        $this->assertInstanceOf('Ddeboer\DataImport\Writer\AbstractStreamWriter', $this->writer);
+        $this->assertInstanceOf('Port\Writer\AbstractStreamWriter', $this->writer);
     }
 
     public function testDiscriminantField()
@@ -39,7 +39,7 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testSetStreamWriterForSpecificDiscrValue()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->setMethods(array('setStream'))
             ->getMockForAbstractClass();
 
@@ -56,7 +56,7 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testHasStreamWriter()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
 
         $this->assertFalse($this->writer->hasStreamWriter('foo'), 'no foo stream writer should be registered');
@@ -66,9 +66,9 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testStreamWriters()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
-        $barWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $barWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
         $writers = array(
             'foo' => $fooWriter,
@@ -81,9 +81,9 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testWriteItem()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
-        $barWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $barWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
         $writers = array(
             'foo' => $fooWriter,
@@ -105,9 +105,9 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testSetStream()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
-        $barWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $barWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->getMockForAbstractClass();
         $writers = array(
             'foo' => $fooWriter,
@@ -127,7 +127,7 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
 
     public function testSetWriterShouldInhibitStreamClose()
     {
-        $fooWriter = $this->getMockBuilder('Ddeboer\DataImport\Writer\AbstractStreamWriter')
+        $fooWriter = $this->getMockBuilder('Port\Writer\AbstractStreamWriter')
             ->setMethods(array('setCloseStreamOnFinish'))
             ->getMockForAbstractClass();
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Filter;
+namespace spec\Port\Filter;
 
-use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
+use Port\ValueConverter\DateTimeValueConverter;
 use PhpSpec\ObjectBehavior;
 
 class DateTimeThresholdFilterSpec extends ObjectBehavior
@@ -14,7 +14,7 @@ class DateTimeThresholdFilterSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Filter\DateTimeThresholdFilter');
+        $this->shouldHaveType('Port\Filter\DateTimeThresholdFilter');
     }
 
     function it_throws_an_exception_when_no_threshold_is_set()

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader\Factory;
+namespace Port\Tests\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\Factory\DoctrineReaderFactory;
+use Port\Reader\Factory\DoctrineReaderFactory;
 
 class ExcelReaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,6 +11,6 @@ class ExcelReaderFactoryTest extends \PHPUnit_Framework_TestCase
         $om = $this->getMockBuilder('\Doctrine\Common\Persistence\ObjectManager')->getMock();
         $factory = new DoctrineReaderFactory($om);
         $reader = $factory->getReader('Some:Object');
-        $this->assertInstanceOf('\Ddeboer\DataImport\Reader\DoctrineReader', $reader);
+        $this->assertInstanceOf('\Port\Reader\DoctrineReader', $reader);
     }
 }

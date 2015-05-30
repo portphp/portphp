@@ -1,11 +1,11 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\DoctrineReader;
+use Port\Reader\DoctrineReader;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
-use Ddeboer\DataImport\Tests\Fixtures\Entity\User;
+use Port\Tests\Fixtures\Entity\User;
 
 class DoctrineReaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -43,7 +43,7 @@ class DoctrineReaderTest extends \PHPUnit_Framework_TestCase
 
         $em->flush();
 
-        return new DoctrineReader($em, 'Ddeboer\DataImport\Tests\Fixtures\Entity\User');
+        return new DoctrineReader($em, 'Port\Tests\Fixtures\Entity\User');
     }
 
     protected function getEntityManager()
@@ -62,7 +62,7 @@ class DoctrineReaderTest extends \PHPUnit_Framework_TestCase
         $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
         $schemaTool->createSchema(
             array(
-                $em->getMetadataFactory()->getMetadataFor('Ddeboer\DataImport\Tests\Fixtures\Entity\User')
+                $em->getMetadataFactory()->getMetadataFor('Port\Tests\Fixtures\Entity\User')
             )
         );
 

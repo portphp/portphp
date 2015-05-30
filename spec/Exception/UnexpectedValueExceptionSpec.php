@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Exception;
+namespace spec\Port\Exception;
 
 use PhpSpec\ObjectBehavior;
 
@@ -8,11 +8,11 @@ class UnexpectedValueExceptionSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Exception\UnexpectedValueException');
+        $this->shouldHaveType('Port\Exception\UnexpectedValueException');
     }
 
     function it_is_an_exception()
     {
-        $this->shouldImplement('Ddeboer\DataImport\Exception');
+        $this->shouldImplement('Port\Exception');
     }
 }

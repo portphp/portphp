@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
-use Ddeboer\DataImport\Reader;
+use Port\Reader;
 
 /**
  * Reader that provides the count of total items

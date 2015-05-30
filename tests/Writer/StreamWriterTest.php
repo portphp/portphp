@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\AbstractStreamWriter;
+use Port\Writer\AbstractStreamWriter;
 
 abstract class StreamWriterTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Exception;
+namespace Port\Exception;
 
-use Ddeboer\DataImport\Exception;
+use Port\Exception;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

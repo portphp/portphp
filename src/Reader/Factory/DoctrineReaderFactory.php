@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader\Factory;
+namespace Port\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\DoctrineReader;
+use Port\Reader\DoctrineReader;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**

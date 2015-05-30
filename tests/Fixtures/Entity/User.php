@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Fixtures\Entity;
+namespace Port\Tests\Fixtures\Entity;
 
 /**
  * @Entity()

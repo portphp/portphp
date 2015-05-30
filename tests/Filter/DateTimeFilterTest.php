@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Filter;
+namespace Port\Filter;
 
-use Ddeboer\DataImport\Filter\DateTimeThresholdFilter;
-use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
+use Port\Filter\DateTimeThresholdFilter;
+use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeFilterTest extends \PHPUnit_Framework_TestCase
 {

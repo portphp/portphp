@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport;
+namespace spec\Port;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -16,7 +16,7 @@ class ResultSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Result');
+        $this->shouldHaveType('Port\Result');
     }
 
     function it_has_a_name()

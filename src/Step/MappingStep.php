@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Step;
+namespace Port\Step;
 
-use Ddeboer\DataImport\Exception\MappingException;
-use Ddeboer\DataImport\Step;
+use Port\Exception\MappingException;
+use Port\Step;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
 use Symfony\Component\PropertyAccess\PropertyAccessor;

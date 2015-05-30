@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\CsvReader;
+use Port\Reader\CsvReader;
 
 class CsvReaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -189,7 +189,7 @@ class CsvReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\DuplicateHeadersException description
+     * @expectedException \Port\Exception\DuplicateHeadersException description
      */
     public function testDuplicateHeadersThrowsException()
     {

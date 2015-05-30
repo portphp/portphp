@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Filter;
+namespace Port\Filter;
 
-use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
+use Port\ValueConverter\DateTimeValueConverter;
 
 /**
  * This filter can be used to filter out some items from a specific date.

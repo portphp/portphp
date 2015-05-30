@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Exception;
+namespace spec\Port\Exception;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
@@ -14,13 +14,13 @@ class ValidationExceptionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Exception\ValidationException');
+        $this->shouldHaveType('Port\Exception\ValidationException');
     }
 
     function it_is_an_exception()
     {
         $this->shouldHaveType('Exception');
-        $this->shouldImplement('Ddeboer\DataImport\Exception');
+        $this->shouldImplement('Port\Exception');
     }
 
     function it_has_a_list_of_violations(ConstraintViolationListInterface $list)

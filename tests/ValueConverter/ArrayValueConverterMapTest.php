@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\ArrayValueConverterMap;
-use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
+use Port\ValueConverter\ArrayValueConverterMap;
+use Port\ValueConverter\CallbackValueConverter;
 
 /**
  * @author Christoph Rosse <christoph@rosse.at>

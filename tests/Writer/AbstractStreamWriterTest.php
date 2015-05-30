@@ -1,17 +1,17 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
 class AbstractStreamWriterTest extends StreamWriterTest
 {
     protected function setUp()
     {
-        $this->writer = $this->getMockForAbstractClass('Ddeboer\\DataImport\\Writer\\AbstractStreamWriter');
+        $this->writer = $this->getMockForAbstractClass('Port\\Writer\\AbstractStreamWriter');
     }
 
     public function testItImplementsWriterInterface()
     {
-        $this->assertInstanceOf('Ddeboer\\DataImport\\Writer', $this->writer);
+        $this->assertInstanceOf('Port\\Writer', $this->writer);
     }
 
     public function testItThrowsInvalidArgumentExceptionOnInvalidStream()

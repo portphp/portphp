@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
-use Ddeboer\DataImport\Exception\DuplicateHeadersException;
+use Port\Exception\DuplicateHeadersException;
 
 /**
  * Reads a CSV file, using as little memory as possible

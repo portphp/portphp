@@ -1,7 +1,7 @@
 <?php
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\CharsetValueConverter;
+use Port\ValueConverter\CharsetValueConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

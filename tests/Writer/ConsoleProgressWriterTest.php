@@ -1,10 +1,10 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
-use Ddeboer\DataImport\Workflow\StepAggregator;
-use Ddeboer\DataImport\Reader\ArrayReader;
+use Port\Writer\ConsoleProgressWriter;
+use Port\Workflow\StepAggregator;
+use Port\Reader\ArrayReader;
 use Symfony\Component\Console\Output\NullOutput;
 
 class ConsoleProgressWriterTest extends \PHPUnit_Framework_TestCase

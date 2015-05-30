@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader\Factory;
+namespace Port\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\DbalReader;
+use Port\Reader\DbalReader;
 use Doctrine\DBAL\Connection;
 
 /**

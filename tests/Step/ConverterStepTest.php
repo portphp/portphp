@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Step;
+namespace Port\Tests\Step;
 
-use Ddeboer\DataImport\Step\ConverterStep;
+use Port\Step\ConverterStep;
 
 class ConverterStepTest extends \PHPUnit_Framework_TestCase
 {

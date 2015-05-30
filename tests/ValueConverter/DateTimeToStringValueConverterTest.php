@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\DateTimeToStringValueConverter;
+use Port\ValueConverter\DateTimeToStringValueConverter;
 
 class DateTimeToStringValueConverterTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +15,7 @@ class DateTimeToStringValueConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\UnexpectedValueException
+     * @expectedException \Port\Exception\UnexpectedValueException
      * @expectedExceptionMessage Input must be DateTime object
      */
     public function testInvalidInputFormatThrowsException()

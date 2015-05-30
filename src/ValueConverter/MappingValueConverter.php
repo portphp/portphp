@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\ValueConverter;
+namespace Port\ValueConverter;
 
-use Ddeboer\DataImport\Exception\UnexpectedValueException;
+use Port\Exception\UnexpectedValueException;
 
 /**
  * @author Grégoire Paris

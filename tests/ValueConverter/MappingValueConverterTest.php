@@ -1,12 +1,12 @@
 <?php
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\MappingValueConverter;
+use Port\ValueConverter\MappingValueConverter;
 
 class MappingValueConverterTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException Ddeboer\DataImport\Exception\UnexpectedValueException
+     * @expectedException Port\Exception\UnexpectedValueException
      * @expectedExceptionMessage Cannot find mapping for value "unexpected value"
      */
     public function testConvert()

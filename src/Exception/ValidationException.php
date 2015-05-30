@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Exception;
+namespace Port\Exception;
 
-use Ddeboer\DataImport\Exception;
+use Port\Exception;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**

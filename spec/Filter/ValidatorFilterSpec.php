@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Filter;
+namespace spec\Port\Filter;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -32,7 +32,7 @@ class ValidatorFilterSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Filter\ValidatorFilter');
+        $this->shouldHaveType('Port\Filter\ValidatorFilter');
     }
 
     function it_validates_an_item(ValidatorInterface $validator, Constraint $constraint, ConstraintViolationList $list)
@@ -77,7 +77,7 @@ class ValidatorFilterSpec extends ObjectBehavior
         $this->throwExceptions(true);
         $this->add('key1', $constraint);
 
-        $this->shouldThrow('Ddeboer\DataImport\Exception\ValidationException')->during__invoke($this->item1);
+        $this->shouldThrow('Port\Exception\ValidationException')->during__invoke($this->item1);
 
         $this->getViolations()->shouldReturn([1 => $list]);
     }

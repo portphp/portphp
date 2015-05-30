@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
+use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeValueConverterTest extends \PHPUnit_Framework_TestCase
 {

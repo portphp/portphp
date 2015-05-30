@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
-use Ddeboer\DataImport\Writer;
+use Port\Writer;
 use Doctrine\DBAL\Logging\SQLLogger;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;

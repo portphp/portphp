@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Exception;
+namespace spec\Port\Exception;
 
 use PhpSpec\ObjectBehavior;
 
@@ -13,12 +13,12 @@ class DuplicateHeadersExceptionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Exception\DuplicateHeadersException');
+        $this->shouldHaveType('Port\Exception\DuplicateHeadersException');
     }
 
     function it_is_a_reader_exception()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Exception\ReaderException');
+        $this->shouldHaveType('Port\Exception\ReaderException');
     }
 
     function it_has_a_message()

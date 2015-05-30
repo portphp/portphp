@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Step;
+namespace Port\Tests\Step;
 
-use Ddeboer\DataImport\Step\FilterStep;
+use Port\Step\FilterStep;
 
 class FilterStepTest extends \PHPUnit_Framework_TestCase
 {

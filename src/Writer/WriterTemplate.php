@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
 /**
  * This template can be overridden in concrete implementations

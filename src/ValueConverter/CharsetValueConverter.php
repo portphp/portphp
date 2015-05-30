@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\ValueConverter;
+namespace Port\ValueConverter;
 
-use Ddeboer\DataImport\Exception\UnexpectedTypeException;
+use Port\Exception\UnexpectedTypeException;
 
 /**
  * Convert a value in a specific charset

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport;
+namespace Port;
 
 /**
  * A mediator between a reader and one or more writers and converters

@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
-use Ddeboer\DataImport\Reader\CountableReader;
-use Ddeboer\DataImport\Writer;
+use Port\Reader\CountableReader;
+use Port\Writer;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 

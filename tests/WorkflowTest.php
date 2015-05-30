@@ -1,26 +1,26 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests;
+namespace Port\Tests;
 
-use Ddeboer\DataImport\Exception\WriterException;
-use Ddeboer\DataImport\Reader\ArrayReader;
-use Ddeboer\DataImport\Step\ConverterStep;
-use Ddeboer\DataImport\Step\FilterStep;
-use Ddeboer\DataImport\Step\MappingStep;
-use Ddeboer\DataImport\Step\ValueConverterStep;
-use Ddeboer\DataImport\Writer\ArrayWriter;
-use Ddeboer\DataImport\Workflow\StepAggregator;
-use Ddeboer\DataImport\Filter\CallbackFilter;
-use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
-use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
-use Ddeboer\DataImport\Writer\CallbackWriter;
-use Ddeboer\DataImport\Exception\SourceNotFoundException;
+use Port\Exception\WriterException;
+use Port\Reader\ArrayReader;
+use Port\Step\ConverterStep;
+use Port\Step\FilterStep;
+use Port\Step\MappingStep;
+use Port\Step\ValueConverterStep;
+use Port\Writer\ArrayWriter;
+use Port\Workflow\StepAggregator;
+use Port\Filter\CallbackFilter;
+use Port\ValueConverter\CallbackValueConverter;
+use Port\ItemConverter\CallbackItemConverter;
+use Port\Writer\CallbackWriter;
+use Port\Exception\SourceNotFoundException;
 
 class WorkflowTest extends \PHPUnit_Framework_TestCase
 {
     public function testAddStep()
     {
-        $step = $this->getMock('Ddeboer\DataImport\Step');
+        $step = $this->getMock('Port\Step');
 
         $this->getWorkflow()->addStep($step);
     }
@@ -34,7 +34,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
 
     public function testWriterIsPreparedAndFinished()
     {
-        $writer = $this->getMockBuilder('\Ddeboer\DataImport\Writer\CallbackWriter')
+        $writer = $this->getMockBuilder('\Port\Writer\CallbackWriter')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -80,7 +80,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\UnexpectedTypeException
+     * @expectedException \Port\Exception\UnexpectedTypeException
      */
     public function testItemConverterWhichReturnObjects()
     {
@@ -103,7 +103,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Ddeboer\DataImport\Exception\UnexpectedTypeException
+     * @expectedException \Port\Exception\UnexpectedTypeException
      */
     public function testItemConverterWithObjectsAndNoItemConverters()
     {
@@ -124,13 +124,13 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
 
     public function testFilterPriority()
     {
-        $offsetFilter = $this->getMockBuilder('\Ddeboer\DataImport\Filter\OffsetFilter')
+        $offsetFilter = $this->getMockBuilder('\Port\Filter\OffsetFilter')
             ->disableOriginalConstructor()
             ->setMethods(array('__invoke'))
             ->getMock();
         $offsetFilter->expects($this->never())->method('filter');
 
-        $validatorFilter = $this->getMockBuilder('\Ddeboer\DataImport\Filter\ValidatorFilter')
+        $validatorFilter = $this->getMockBuilder('\Port\Filter\ValidatorFilter')
             ->disableOriginalConstructor()
             ->setMethods(array('__invoke'))
             ->getMock();
@@ -149,7 +149,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
 
     public function testFilterPriorityOverride()
     {
-        $offsetFilter = $this->getMockBuilder('\Ddeboer\DataImport\Filter\OffsetFilter')
+        $offsetFilter = $this->getMockBuilder('\Port\Filter\OffsetFilter')
             ->disableOriginalConstructor()
             ->setMethods(array('__invoke'))
             ->getMock();
@@ -157,7 +157,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
             ->method('__invoke')
             ->will($this->returnValue(false));
 
-        $validatorFilter = $this->getMockBuilder('\Ddeboer\DataImport\Filter\ValidatorFilter')
+        $validatorFilter = $this->getMockBuilder('\Port\Filter\ValidatorFilter')
             ->disableOriginalConstructor()
             ->setMethods(array('__invoke'))
             ->getMock();
@@ -178,7 +178,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
         $reader = new ArrayReader($originalData);
 
         $array = array();
-        $writer = $this->getMock('Ddeboer\DataImport\Writer\ArrayWriter', array(), array(&$array));
+        $writer = $this->getMock('Port\Writer\ArrayWriter', array(), array(&$array));
 
         $exception = new SourceNotFoundException("Log me!");
 
@@ -205,11 +205,11 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
         $workflow   = $this->getWorkflow();
         $result     = $workflow->process();
 
-        $this->assertInstanceOf('Ddeboer\DataImport\Result', $result);
+        $this->assertInstanceOf('Port\Result', $result);
         $this->assertInstanceOf('DateTime', $result->getStartTime());
         $this->assertInstanceOf('DateTime', $result->getEndTime());
         $this->assertInstanceOf('DateInterval', $result->getElapsed());
-        $this->assertInstanceOf('Ddeboer\DataImport\Result', $result);
+        $this->assertInstanceOf('Port\Result', $result);
         $this->assertSame(3, $result->getTotalProcessedCount());
         $this->assertSame(3, $result->getSuccessCount());
         $this->assertSame(0, $result->getErrorCount());
@@ -254,7 +254,7 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
     {
         $workflow   = $this->getWorkflow();
         $workflow->setSkipItemOnFailure(true);
-        $writer     = $this->getMock('Ddeboer\DataImport\Writer\WriterInterface');
+        $writer     = $this->getMock('Port\Writer\WriterInterface');
 
         $e = new WriterException();
 
@@ -267,11 +267,11 @@ class WorkflowTest extends \PHPUnit_Framework_TestCase
         $workflow->addWriter($writer);
         $result = $workflow->process();
 
-        $this->assertInstanceOf('Ddeboer\DataImport\Result', $result);
+        $this->assertInstanceOf('Port\Result', $result);
         $this->assertInstanceOf('DateTime', $result->getStartTime());
         $this->assertInstanceOf('DateTime', $result->getEndTime());
         $this->assertInstanceOf('DateInterval', $result->getElapsed());
-        $this->assertInstanceOf('Ddeboer\DataImport\Result', $result);
+        $this->assertInstanceOf('Port\Result', $result);
         $this->assertSame(3, $result->getTotalProcessedCount());
         $this->assertSame(2, $result->getSuccessCount());
         $this->assertSame(1, $result->getErrorCount());

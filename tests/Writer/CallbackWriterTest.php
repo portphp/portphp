@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\CallbackWriter;
+use Port\Writer\CallbackWriter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

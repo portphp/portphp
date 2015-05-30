@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Step;
+namespace Port\Step;
 
-use Ddeboer\DataImport\Step;
-use Ddeboer\DataImport\Exception\UnexpectedTypeException;
+use Port\Step;
+use Port\Exception\UnexpectedTypeException;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

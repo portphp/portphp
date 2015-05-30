@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Filter;
+namespace spec\Port\Filter;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class OffsetFilterSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Filter\OffsetFilter');
+        $this->shouldHaveType('Port\Filter\OffsetFilter');
     }
 
     function it_does_not_limit_by_default()

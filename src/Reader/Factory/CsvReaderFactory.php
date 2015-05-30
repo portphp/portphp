@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader\Factory;
+namespace Port\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\CsvReader;
+use Port\Reader\CsvReader;
 
 /**
  * Factory that creates CsvReaders

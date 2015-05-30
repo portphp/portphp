@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
-use Ddeboer\DataImport\Writer;
+use Port\Writer;
 
 /**
  * This class writes an item into an array that was passed by reference

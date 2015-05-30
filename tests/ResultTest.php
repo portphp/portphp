@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests;
+namespace Port\Tests;
 
-use Ddeboer\DataImport\Result;
+use Port\Result;
 
 /**
  * Tests For Workflow Result

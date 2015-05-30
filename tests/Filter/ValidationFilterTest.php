@@ -1,11 +1,11 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Filter;
+namespace Port\Tests\Filter;
 
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Constraints;
-use Ddeboer\DataImport\Filter\ValidatorFilter;
-use Ddeboer\DataImport\Exception\ValidationException;
+use Port\Filter\ValidatorFilter;
+use Port\Exception\ValidationException;
 
 class ValidationFilterTest extends \PHPUnit_Framework_TestCase
 {

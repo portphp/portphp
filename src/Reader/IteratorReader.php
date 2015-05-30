@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
-use Ddeboer\DataImport\Reader;
+use Port\Reader;
 
 /**
  * Use an iterator as a reader

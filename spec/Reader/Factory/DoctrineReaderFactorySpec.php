@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ddeboer\DataImport\Reader\Factory;
+namespace spec\Port\Reader\Factory;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use PhpSpec\ObjectBehavior;
@@ -14,11 +14,11 @@ class DoctrineReaderFactorySpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ddeboer\DataImport\Reader\Factory\DoctrineReaderFactory');
+        $this->shouldHaveType('Port\Reader\Factory\DoctrineReaderFactory');
     }
 
     function it_creates_a_reader()
     {
-        $this->getReader('Entity')->shouldHaveType('Ddeboer\DataImport\Reader\DoctrineReader');
+        $this->getReader('Entity')->shouldHaveType('Port\Reader\DoctrineReader');
     }
 }

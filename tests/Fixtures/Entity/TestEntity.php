@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Fixtures\Entity;
+namespace Port\Tests\Fixtures\Entity;
 
 class TestEntity
 {
@@ -30,7 +30,7 @@ class TestEntity
         $this->secondProperty = $secondProperty;
     }
 
-    public function getFirstAssociation() 
+    public function getFirstAssociation()
     {
         return $this->firstAssociation;
     }

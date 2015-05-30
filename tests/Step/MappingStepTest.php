@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Step;
+namespace Port\Tests\Step;
 
-use Ddeboer\DataImport\Step\MappingStep;
+use Port\Step\MappingStep;
 
 class MappingStepTest extends \PHPUnit_Framework_TestCase
 {

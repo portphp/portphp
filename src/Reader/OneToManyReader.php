@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
-use Ddeboer\DataImport\Reader;
-use Ddeboer\DataImport\Exception\ReaderException;
+use Port\Reader;
+use Port\Exception\ReaderException;
 
 /**
  * Takes multiple readers for processing in the same workflow

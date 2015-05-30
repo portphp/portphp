@@ -1,15 +1,15 @@
 <?php
 
-namespace Ddeboer\DataImport\Workflow;
+namespace Port\Workflow;
 
-use Ddeboer\DataImport\Exception;
-use Ddeboer\DataImport\Exception\UnexpectedTypeException;
-use Ddeboer\DataImport\Reader;
-use Ddeboer\DataImport\Result;
-use Ddeboer\DataImport\Step;
-use Ddeboer\DataImport\Step\PriorityStep;
-use Ddeboer\DataImport\Workflow;
-use Ddeboer\DataImport\Writer;
+use Port\Exception;
+use Port\Exception\UnexpectedTypeException;
+use Port\Reader;
+use Port\Result;
+use Port\Step;
+use Port\Step\PriorityStep;
+use Port\Workflow;
+use Port\Writer;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;

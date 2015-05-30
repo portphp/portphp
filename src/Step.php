@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport;
+namespace Port;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

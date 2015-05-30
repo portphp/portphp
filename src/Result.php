@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport;
+namespace Port;
 
-use Ddeboer\DataImport\Exception\ExceptionInterface;
+use Port\Exception\ExceptionInterface;
 
 /**
  * Simple Container for Workflow Results

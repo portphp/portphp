@@ -1,5 +1,5 @@
 <?php
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Statement;

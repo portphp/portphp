@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\CountableIteratorReader;
+use Port\Reader\CountableIteratorReader;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>

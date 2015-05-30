@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Filter;
+namespace Port\Filter;
 
-use Ddeboer\DataImport\Filter\OffsetFilter;
+use Port\Filter\OffsetFilter;
 
 /**
  * @author Ville Mattila <ville@eventio.fi>

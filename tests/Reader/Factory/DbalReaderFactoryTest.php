@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader\Factory;
+namespace Port\Tests\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\Factory\ExcelReaderFactory;
+use Port\Reader\Factory\ExcelReaderFactory;
 
 class DbalReaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class DbalReaderFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $factory = new ExcelReaderFactory();
         $reader = $factory->getReader(new \SplFileObject(__DIR__.'/../../Fixtures/data_column_headers.xlsx'));
-        $this->assertInstanceOf('\Ddeboer\DataImport\Reader\ExcelReader', $reader);
+        $this->assertInstanceOf('\Port\Reader\ExcelReader', $reader);
         $this->assertCount(4, $reader);
 
         $factory = new ExcelReaderFactory(0);

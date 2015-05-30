@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Step;
+namespace Port\Tests\Step;
 
-use Ddeboer\DataImport\Step\ValidatorStep;
+use Port\Step\ValidatorStep;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationList;
 
@@ -41,7 +41,7 @@ class ValidatorStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Ddeboer\DataImport\Exception\ValidationException
+     * @expectedException Port\Exception\ValidationException
      */
     public function testProcessWithExceptions()
     {

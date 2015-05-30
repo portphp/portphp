@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\ExcelWriter;
+use Port\Writer\ExcelWriter;
 
 class ExcelWriterTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport;
+namespace Port;
 
 /**
  * Iterator that reads data to be imported

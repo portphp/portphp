@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport;
+namespace Port;
 
 /**
  * Persists data in a storage medium, such as a database, CSV or XML file, etc.

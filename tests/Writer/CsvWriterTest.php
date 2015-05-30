@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\CsvWriter;
+use Port\Writer\CsvWriter;
 
 class CsvWriterTest extends StreamWriterTest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Step;
+namespace Port\Step;
 
-use Ddeboer\DataImport\Step;
+use Port\Step;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

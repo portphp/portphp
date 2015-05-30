@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
 /**
  * Use a class implementing both \Iterator and \Countable as a reader

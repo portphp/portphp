@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
 /**
  * Class allowing multiple writers to write in same stream

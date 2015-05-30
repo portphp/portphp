@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
-use Ddeboer\DataImport\Writer;
+use Port\Writer;
 
 /**
  * Base class to write into streams

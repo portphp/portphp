@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\DbalReader;
+use Port\Reader\DbalReader;
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;

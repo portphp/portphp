@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\Internal\Hydration\IterableResult;

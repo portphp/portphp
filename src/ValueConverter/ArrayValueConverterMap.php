@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\ValueConverter;
+namespace Port\ValueConverter;
 
 /**
  * Converts a nested array using a converter-map

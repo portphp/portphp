@@ -1,14 +1,14 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\BatchWriter;
+use Port\Writer\BatchWriter;
 
 class BatchWriterTest extends \PHPUnit_Framework_TestCase
 {
     public function testWriteItem()
     {
-        $delegate = $this->getMock('Ddeboer\DataImport\Writer');
+        $delegate = $this->getMock('Port\Writer');
         $writer = new BatchWriter($delegate);
 
         $delegate->expects($this->once())
@@ -23,7 +23,7 @@ class BatchWriterTest extends \PHPUnit_Framework_TestCase
 
     public function testFlush()
     {
-        $delegate = $this->getMock('Ddeboer\DataImport\Writer');
+        $delegate = $this->getMock('Port\Writer');
         $writer = new BatchWriter($delegate);
 
         $delegate->expects($this->exactly(20))

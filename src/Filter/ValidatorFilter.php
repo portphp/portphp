@@ -1,11 +1,11 @@
 <?php
 
-namespace Ddeboer\DataImport\Filter;
+namespace Port\Filter;
 
 use Symfony\Component\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints;
-use Ddeboer\DataImport\Exception\ValidationException;
+use Port\Exception\ValidationException;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

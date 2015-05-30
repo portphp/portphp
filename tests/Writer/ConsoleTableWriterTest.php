@@ -1,14 +1,14 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Helper\Table;
 
-use Ddeboer\DataImport\Workflow\StepAggregator;
-use Ddeboer\DataImport\Reader\ArrayReader;
-use Ddeboer\DataImport\ItemConverter\MappingItemConverter;
-use Ddeboer\DataImport\Writer\ConsoleTableWriter;
+use Port\Workflow\StepAggregator;
+use Port\Reader\ArrayReader;
+use Port\ItemConverter\MappingItemConverter;
+use Port\Writer\ConsoleTableWriter;
 
 /**
  *  @author Igor Mukhin <igor.mukhin@gmail.com>

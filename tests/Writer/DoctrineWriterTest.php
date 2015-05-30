@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Writer;
+namespace Port\Tests\Writer;
 
-use Ddeboer\DataImport\Writer\DoctrineWriter;
-use Ddeboer\DataImport\Tests\Fixtures\Entity\TestEntity;
+use Port\Writer\DoctrineWriter;
+use Port\Tests\Fixtures\Entity\TestEntity;
 
 class DoctrineWriterTest extends \PHPUnit_Framework_TestCase
 {
@@ -43,7 +43,7 @@ class DoctrineWriterTest extends \PHPUnit_Framework_TestCase
 
         $metadata->expects($this->any())
             ->method('getName')
-            ->will($this->returnValue('Ddeboer\DataImport\Tests\Fixtures\Entity\TestEntity'));
+            ->will($this->returnValue('Port\Tests\Fixtures\Entity\TestEntity'));
 
         $metadata->expects($this->any())
             ->method('getFieldNames')
@@ -55,7 +55,7 @@ class DoctrineWriterTest extends \PHPUnit_Framework_TestCase
 
         $metadata->expects($this->any())
             ->method('getAssociationMappings')
-            ->will($this->returnValue(array(array('fieldName' => 'firstAssociation','targetEntity' => 'Ddeboer\DataImport\Tests\Fixtures\Entity\TestEntity'))));
+            ->will($this->returnValue(array(array('fieldName' => 'firstAssociation','targetEntity' => 'Port\Tests\Fixtures\Entity\TestEntity'))));
 
         $configuration = $this->getMockBuilder('Doctrine\DBAL\Configuration')
             ->setMethods(array('getConnection'))
@@ -158,7 +158,7 @@ class DoctrineWriterTest extends \PHPUnit_Framework_TestCase
 
         $em->expects($this->once())
             ->method('clear')
-            ->with($this->equalTo('Ddeboer\DataImport\Tests\Fixtures\Entity\TestEntity'));
+            ->with($this->equalTo('Port\Tests\Fixtures\Entity\TestEntity'));
 
         $writer = new DoctrineWriter($em, 'DdeboerDataImport:TestEntity');
         $writer->finish();

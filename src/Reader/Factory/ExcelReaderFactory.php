@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader\Factory;
+namespace Port\Reader\Factory;
 
-use Ddeboer\DataImport\Reader\ExcelReader;
+use Port\Reader\ExcelReader;
 
 /**
  * Factory that creates ExcelReaders

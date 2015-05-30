@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\Tests\Reader;
+namespace Port\Tests\Reader;
 
-use Ddeboer\DataImport\Reader\ExcelReader;
+use Port\Reader\ExcelReader;
 
 class ExcelReaderTest extends \PHPUnit_Framework_TestCase
 {

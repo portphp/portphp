@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
 /**
  * Writes to a CSV file

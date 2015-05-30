@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\DataImport\Reader;
+namespace Port\Reader;
 
 /**
  * Reads an array

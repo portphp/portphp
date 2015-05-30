@@ -1,8 +1,8 @@
 <?php
 
-namespace Ddeboer\DataImport\ValueConverter;
+namespace Port\ValueConverter;
 
-use Ddeboer\DataImport\ValueConverter\StringToObjectConverter;
+use Port\ValueConverter\StringToObjectConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>

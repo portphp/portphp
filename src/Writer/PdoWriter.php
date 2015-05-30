@@ -1,9 +1,9 @@
 <?php
 
-namespace Ddeboer\DataImport\Writer;
+namespace Port\Writer;
 
-use Ddeboer\DataImport\Exception\WriterException;
-use Ddeboer\DataImport\Writer;
+use Port\Exception\WriterException;
+use Port\Writer;
 
 /**
  * Write data into a specific database table using a PDO instance.
