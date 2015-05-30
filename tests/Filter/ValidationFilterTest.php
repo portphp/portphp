@@ -72,7 +72,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
 
         $item = array('foo' => true, 'bar' => true);
 
-        $this->filter->add('foo', new Constraints\True());
+        $this->filter->add('foo', new Constraints\IsTrue());
         $this->assertTrue(call_user_func($this->filter, $item));
     }
 
