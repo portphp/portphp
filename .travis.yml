@@ -17,9 +17,6 @@ matrix:
         - COMPOSER_FLAGS="--prefer-lowest --prefer-stable"
         - COVERAGE=true
 
-before_script:
-  - if [[ "$COVERAGE" != true ]]; then phpenv config-rm xdebug.ini; fi
-
 install:
   - if [[ "$TRAVIS_PHP_VERSION" == "hhvm" ]]; then composer require mongofill/mongofill=dev-master --no-update; fi
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-source --no-interaction
