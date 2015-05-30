@@ -29,7 +29,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Port\\": "src/"
+            "Port\\": "src/",
+            "Port\\Tests\\": "tests/"
         }
     },
     "require-dev": {
@@ -44,11 +45,6 @@
         "symfony/console": "~2.5",
         "symfony/property-access": "2.3",
         "symfony/validator": "~2.3"
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Port\\Tests\\": "tests/"
-        }
     },
     "extra": {
         "branch-alias": {
