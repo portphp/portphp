@@ -1,5 +1,5 @@
 suites:
-  data_import_suite:
-    namespace: Ddeboer\DataImport
-    psr4_prefix: Ddeboer\DataImport
+  library_suite:
+    namespace: Port
+    psr4_prefix: Port
 formatter.name: pretty
