@@ -2,7 +2,7 @@
 
 namespace Port\Filter;
 
-use Symfony\Component\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints;
 use Port\Exception\ValidationException;
@@ -89,8 +89,9 @@ class ValidatorFilter
 
     /**
      * @param array $item
+     * @return bool
      *
-     * @return boolean
+     * @throws ValidationException
      */
     public function __invoke(array $item)
     {
@@ -101,7 +102,7 @@ class ValidatorFilter
         }
 
         $constraints = new Constraints\Collection($this->constraints);
-        $list = $this->validator->validateValue($item, $constraints);
+        $list = $this->validator->validate($item, $constraints);
         $currentLine = $this->line++;
 
         if (count($list) > 0) {

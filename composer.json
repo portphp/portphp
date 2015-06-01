@@ -33,6 +33,9 @@
             "Port\\Tests\\": "tests/"
         }
     },
+    "conflict": {
+        "symfony/validator": "<2.5"
+    },
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
