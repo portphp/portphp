@@ -5,8 +5,6 @@ namespace Port\Tests\Writer;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Helper\Table;
 
-use Port\Workflow\StepAggregator;
-use Port\Reader\ArrayReader;
 use Port\ItemConverter\MappingItemConverter;
 use Port\Writer\ConsoleTableWriter;
 
@@ -27,7 +25,6 @@ class ConsoleTableWriterTest extends \PHPUnit_Framework_TestCase
                 'lastname' => 'Sidorov'
             )
         );
-        $reader = new ArrayReader($data);
 
         $output = new BufferedOutput();
 
@@ -38,10 +35,14 @@ class ConsoleTableWriterTest extends \PHPUnit_Framework_TestCase
         $table->expects($this->at(2))
             ->method('addRow');
 
-        $workflow = new StepAggregator($reader);
-        $workflow
-            ->addWriter(new ConsoleTableWriter($output, $table))
-            ->process()
-        ;
+        $writer = new ConsoleTableWriter($output, $table);
+
+        $writer->prepare();
+
+        foreach ($data as $item) {
+            $writer->writeItem($item);
+        }
+
+        $writer->finish();
     }
 }

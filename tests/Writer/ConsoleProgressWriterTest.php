@@ -38,9 +38,13 @@ class ConsoleProgressWriterTest extends \PHPUnit_Framework_TestCase
             ->method('write');
         $writer = new ConsoleProgressWriter($output, $reader);
 
-        $workflow = new StepAggregator($reader);
-        $workflow->addWriter($writer)
-            ->process();
+        $writer->prepare();
+
+        foreach ($data as $item) {
+            $writer->writeItem($item);
+        }
+
+        $writer->finish();
 
         $this->assertEquals('debug', $writer->getVerbosity());
     }
