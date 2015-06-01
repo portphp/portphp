@@ -1,0 +1,8 @@
+site_name: PortPHP Documentation
+theme: readthedocs
+pages:
+- Welcome: index.md
+- quickstart.md
+- readers.md
+- writers.md
+- workflow.md
