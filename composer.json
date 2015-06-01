@@ -33,6 +33,9 @@
             "Port\\Tests\\": "tests/"
         }
     },
+    "conflict": {
+        "symfony/validator": "<2.5"
+    },
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
@@ -43,7 +46,7 @@
         "doctrine/orm": "~2.4",
         "symfony/console": "~2.5",
         "symfony/property-access": "2.3",
-        "symfony/validator": "~2.3"
+        "symfony/validator": "^2.7"
     },
     "extra": {
         "branch-alias": {

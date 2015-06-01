@@ -7,11 +7,11 @@ use Symfony\Component\Validator\Constraints;
 use Port\Filter\ValidatorFilter;
 use Port\Exception\ValidationException;
 
-class ValidationFilterTest extends \PHPUnit_Framework_TestCase
+class ValidatorFilterTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        $this->validator = $this->getMock('Symfony\\Component\\Validator\\ValidatorInterface');
+        $this->validator = $this->getMock('Symfony\Component\Validator\Validator\ValidatorInterface');
         $this->filter = new ValidatorFilter($this->validator);
     }
 
@@ -22,7 +22,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
         $list = new ConstraintViolationList();
 
         $this->validator->expects($this->once())
-            ->method('validateValue')
+            ->method('validate')
             ->will($this->returnValue($list));
 
         $this->assertTrue(call_user_func($this->filter, $item));
@@ -36,7 +36,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
         $list = new ConstraintViolationList(array($violation));
 
         $this->validator->expects($this->once())
-            ->method('validateValue')
+            ->method('validate')
             ->will($this->returnValue($list));
 
         $this->assertFalse(call_user_func($this->filter, $item));
@@ -54,7 +54,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
         $list = new ConstraintViolationList(array($violation));
 
         $this->validator->expects($this->once())
-            ->method('validateValue')
+            ->method('validate')
             ->will($this->returnValue($list));
 
         try {
@@ -72,7 +72,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
 
         $item = array('foo' => true, 'bar' => true);
 
-        $this->filter->add('foo', new Constraints\True());
+        $this->filter->add('foo', new Constraints\IsTrue());
         $this->assertTrue(call_user_func($this->filter, $item));
     }
 
@@ -86,7 +86,7 @@ class ValidationFilterTest extends \PHPUnit_Framework_TestCase
         $list = new ConstraintViolationList(array($violation));
 
         $this->validator->expects($this->exactly(2))
-            ->method('validateValue')
+            ->method('validate')
             ->will($this->returnValue($list));
 
         try {
