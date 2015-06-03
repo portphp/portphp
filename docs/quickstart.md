@@ -5,11 +5,11 @@ and [writers](writers.md) on their own. Just create a reader and a writer and
 iterate over the reader:
 
 ```php
-use Port\Reader\Csv;
-use Port\Writer\Dbal;
+use Port\Reader\CsvReader;
+use Port\Writer\DbalWriter;
 
-$reader = new Csv('input.csv');
-$writer = new Dbal();
+$reader = new CsvReader('input.csv');
+$writer = new DbalWriter();
 
 $writer->prepare();
 

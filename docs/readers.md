@@ -2,6 +2,8 @@ Readers read data that will be imported by iterating over it. This library
 includes a handful of readers. Additionally, you can easily
 [implement your own](#create-a-reader).
 
+Readers are optimised to use as little memory as possible
+
 You can use readers on their own, or construct a workflow from them:
 
 ```php
@@ -11,28 +13,32 @@ $workflow = new Workflow($reader);
 
 Reads arrays. Most useful for testing your workflow.
 
-## CSV
+## CsvReader
 
-Install the CVS add-on:
+Install the [CSV adapter](https://github.com/portphp/csv-adapter):
 
 ```bash
 $ composer require portphp/csv
 ```
 
-Reads CSV files, and is optimized to use as little memory as possible.
+Then use the CsvReader to iterate over CSV files:
 
 ```php
-use Port\Reader\Csv\CsvReader;
+use Port\Csv\CsvReader;
 
 $file = new \SplFileObject('/path/to/csv_file.csv');
 $reader = new CsvReader($file);
 ```
 
-Optionally construct with different delimiter, enclosure and/or escape
-character:
+You can pass the CSV delimiter, enclosure and escape character as arguments:
 
 ```php
-$reader = new CsvReader($file, ';');
+// These are the defaults:
+$delimiter = ';';
+$enclosure = '"';
+$escape = '\\';
+
+$reader = new CsvReader($file, $delimiter, $enclosure, $escape);
 ```
 
 Then iterate over the CSV file:
@@ -40,15 +46,15 @@ Then iterate over the CSV file:
 ```php
 foreach ($reader as $row) {
     // $row will be an array containing the comma-separated elements of the line:
-    // array(
+    // [
     //   0 => 'James',
     //   1 => 'Bond'
     //   etc...
-    // )
+    // ]
 }
 ```
 
-### Column headers
+##### Column headers
 
 If one of your rows contains column headers, you can read them to make the rows
 associative arrays:
@@ -58,11 +64,11 @@ $reader->setHeaderRowNumber(0);
 
 foreach ($reader as $row) {
     // $row will now be an associative array:
-    // array(
+    // [
     //   'firstName' => 'James',
     //   'lastName'  => 'Bond'
     //   etc...
-    // )
+    // ]
 }
 ```
 
@@ -127,27 +133,29 @@ $reader = new DbalReader(
 
 ## Doctrine ORM/ODM
 
-Reads data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html):
+Reads data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html).
+
+Install the [Doctrine adapter](https://github.com/portphp/doctrine-adapter):
+
+```bash
+$ composer require portphp/doctrine-adaoter
+```
+
+Then use the reader:
 
 ```php
-use Port\Reader\Doctrine\DoctrineReader;
+use Port\Doctrine\DoctrineReader;
 
 $reader = new DoctrineReader($entityManager, 'Your\Namespace\Entity\User');
 ```
 
 ## Excel
 
-Install the Excel add-on:
+An adapter for the [PHPExcel library](http://phpexcel.codeplex.com/). Install
+the Excel adapter:
 
 ```bash
-$ composer require portphp/csv
-```
-
-Acts as an adapter for the [PHPExcel library](http://phpexcel.codeplex.com/). Make sure
-to include that library in your project:
-
-```bash
-$ composer require phpoffice/phpexcel
+$ composer require portphp/excel-adapter
 ```
 
 Then use the reader to open an Excel file:
@@ -220,35 +228,37 @@ The resulting data will look like:
 
 ```php
 //Row 1
-array(
+[
     'OrderId' => 1,
     'Price' => 30,
-    'items' => array(
-        array(
+    'items' => [
+        [
             'OrderId' => 1,
             'Name' => 'Super Cool Item 1',
-        ),
-        array(
+        ],
+        [
             'OrderId' => 1,
             'Name' => 'Super Cool Item 2',
-        ),
-    ),
-);
+        ],
+    ],
+];
 
 //Row2
-array(
+[
     'OrderId' => 2,
     'Price' => 15,
-    'items' => array(
-        array(
+    'items' => [
+        [
             'OrderId' => 2,
             'Name' => 'Super Cool Item 1',
-        ),
-    )
-);
+        ],
+    ]
+];
 ```
 
 ## Create a reader
 
 You can create your own data reader by implementing the
-[ReaderInterface](/src/Ddeboer/DataImport/Reader/ReaderInterface.php).
+[Reader](/../src/Reader.php) interface, which extends the PHP
+[Iterator interface](http://php.net/manual/en/class.iterator.php). To get an
+idea, have a look at the [readers included in this library](https://github.com/portphp/portphp/tree/master/src/Reader).
