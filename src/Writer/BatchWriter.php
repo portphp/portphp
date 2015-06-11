@@ -9,18 +9,34 @@ use Port\Writer;
  */
 class BatchWriter implements Writer
 {
+    /**
+     * @var Writer
+     */
     private $delegate;
 
+    /**
+     * @var integer
+     */
     private $size;
 
+    /**
+     * @var \SplQueue
+     */
     private $queue;
 
+    /**
+     * @param Writer  $delegate
+     * @param integer $size
+     */
     public function __construct(Writer $delegate, $size = 20)
     {
         $this->delegate = $delegate;
         $this->size = $size;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function prepare()
     {
         $this->delegate->prepare();
@@ -28,6 +44,9 @@ class BatchWriter implements Writer
         $this->queue = new \SplQueue();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function writeItem(array $item)
     {
         $this->queue->push($item);
@@ -37,6 +56,9 @@ class BatchWriter implements Writer
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function finish()
     {
         $this->flush();
@@ -44,6 +66,9 @@ class BatchWriter implements Writer
         $this->delegate->finish();
     }
 
+    /**
+     * Flush the internal buffer to the delegated writer
+     */
     private function flush()
     {
         foreach ($this->queue as $item) {
