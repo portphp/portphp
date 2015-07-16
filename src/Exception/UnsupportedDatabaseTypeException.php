@@ -7,7 +7,7 @@ use Port\Exception;
 class UnsupportedDatabaseTypeException extends \Exception implements Exception
 {
     /**
-     * @param array $duplicates
+     * @param mixed $objectManager
      */
     public function __construct($objectManager)
     {
