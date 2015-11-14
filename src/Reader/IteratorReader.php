@@ -11,11 +11,4 @@ use Port\Reader;
  */
 class IteratorReader extends \IteratorIterator implements Reader
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getFields()
-    {
-        return array_keys($this->current());
-    }
 }

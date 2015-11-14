@@ -218,15 +218,6 @@ class OneToManyReaderTest extends \PHPUnit_Framework_TestCase
         $oneToManyReader->current();
     }
 
-    public function testGetKeysReturnsLeftReaderColumnsMergedWithNestKey()
-    {
-        $leftReader = new ArrayReader(array(array('col1' => 'data1',  'col2' => 'data2'), array('data3', 'data4')));
-        $rightReader = new ArrayReader(array());
-        $oneToManyReader = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
-
-        $this->assertSame(array('col1', 'col2', 'items'), $oneToManyReader->getFields());
-    }
-
     public function testCountReturnsTheCountOfTheLeftReader()
     {
         $leftReader = new ArrayReader(array());

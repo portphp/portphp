@@ -168,14 +168,6 @@ class OneToManyReader implements CountableReader
     /**
      * {@inheritdoc}
      */
-    public function getFields()
-    {
-        return array_merge($this->leftReader->getFields(), [$this->nestKey]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function count()
     {
         return $this->leftReader->count();
