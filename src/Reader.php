@@ -9,10 +9,4 @@ namespace Port;
  */
 interface Reader extends \Iterator
 {
-    /**
-     * Get the field (column, property) names
-     *
-     * @return array
-     */
-    public function getFields();
 }
