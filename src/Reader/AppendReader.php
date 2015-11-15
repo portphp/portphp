@@ -16,6 +16,8 @@ final class AppendReader extends \AppendIterator implements Reader
      */
     public function __construct(array $readers = [])
     {
+        parent::__construct();
+
         foreach ($readers as $reader) {
             $this->addReader($reader);
         }
