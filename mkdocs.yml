@@ -1,0 +1,16 @@
+site_name: PortPHP Documentation
+theme: readthedocs
+pages:
+- index.md
+- quickstart.md
+- readers.md
+- writers.md
+- stepaggregator.md
+- contributing.md
+site_url: http://portphp.org
+repo_url: https://github.com/portphp/portphp
+markdown_extensions:
+  - toc:
+      baselevel: 3
+      permalink: true
+  - admonition
