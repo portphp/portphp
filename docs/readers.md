@@ -7,7 +7,9 @@ Readers are optimised to use as little memory as possible
 You can use readers on their own, or construct a workflow from them:
 
 ```php
-$workflow = new Workflow($reader);
+use Port\Steps\StepAggregator;
+
+$workflow = new StepAggregator($reader);
 ```
 ## Arrays
 
@@ -54,7 +56,7 @@ foreach ($reader as $row) {
 }
 ```
 
-##### Column headers
+### Column headers
 
 If one of your rows contains column headers, you can read them to make the rows
 associative arrays:

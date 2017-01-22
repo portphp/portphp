@@ -34,7 +34,7 @@ $writer
 
 ## DoctrineWriter
 
-Writes data through Doctrine.
+Writes data through the Doctrine ORM.
 
 Install the Doctrine adapter:
 
@@ -151,6 +151,7 @@ $ composer require portphp/console
 ```php
 use Port\Reader;
 use Port\Console\ConsoleTableWriter;
+use Port\Steps\StepAggregator as Workflow;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Helper\Table;
 
@@ -164,7 +165,6 @@ $table->setStyle('compact');
 
 $workflow = new Workflow($reader);
 $workflow->addWriter(new ConsoleTableWriter($output, $table));
-
 ```
 
 ## ConsoleProgressWriter

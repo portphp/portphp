@@ -6,26 +6,25 @@ your data. The steps can be combined in any order you like.
 
 ```php
 use Port\Steps\StepAggregator;
+use Port\Steps\Step\ConverterStep;
 
-$stepAggregator = new StepAggregator();
+$stepAggregator = new StepAggregator($reader);
 
 $converterStep = new ConverterStep([
-    function($item) { return array('name' => $item->name); }
+    function($item) { return ['name' => $item->name]; }
 ]);
-
-
 ```
 
 # Steps
 
 Port ships with a handful of steps. You can easily add your own. You can use
-each step by itself, but they become most ueseful when used together in a
+each step by itself, but they become most useful when used together in a
 StepAggregator workflow (see above).
 
 ## ConverterStep
 
-Converts your input data. Construct a `ConverterStep` and add one or more callables
-to it that do the conversion:
+Converts your input data. Construct a `ConverterStep` and add one or more 
+callables to it that do the conversion:
 
 ```php
 use Port\Steps\Step\ConverterStep;
@@ -42,13 +41,13 @@ $output = $step->process('some data');   // 'dong'
 ## FilterStep
 
 The filter step determines whether the input data should be processed further.
-If any of the callables in the step returns false, the data will be skipped from
-processing:
+If any of the callables in the step returns false, the data will be skipped 
+from processing:
 
 ```php
 use Port\Reader\ArrayReader;
 use Port\Writer\ArrayWriter;
-use Port\Steps\StepAggregator;
+use Port\Steps\StepAggregator as Workflow;
 use Port\Steps\Step\FilterStep;
 
 $step = new FilterStep();
@@ -56,18 +55,66 @@ $step->add(function ($input) { return $input >= 3; });
 $step->add(function ($input) { return $input < 7; });
 
 $data = new ArrayReader(range(0, 10));
-$stepAggregator = new StepAggregator();
-$stepAggregator->addWriter(new ArrayWriter($output));
-$stepAggregator->addStep($step);
+$workflow = new Workflow();
+$workflow->addWriter(new ArrayWriter($output));
+$workflow->addStep($step);
 
-$stepAggregator->process();
+$workflow->process();
 
 var_dump($output);   // [3, 4, 5, 6]
 ```
 
 ## MappingStep
 
+Use the MappingItemConverter to add mappings to your workflow. Your keys from
+the input data will be renamed according to these mappings. This requires
+Symfony’s PropertyAccessor component:
+
+```bash
+$ composer require symfony/property-accessor
+```
+
+Say you have input data:
+  
+```php
+$data = [
+    'foo' => 'bar',
+];
+```
+
+```php
+use Port\Steps\StepAggregator as Workflow;
+use Port\Steps\Step\MappingStep;
+
+$mappingStep = new MappingStep();
+
+                  // from  // to
+$mappingStep->map('[foo]', '[baz]');
+
+$workflow = new Workflow();
+$workflow->addStep($mappingStep);
+
+$workflow->process();
+```
+
+Your output data will now be:
+
+```php
+[
+    'baz' => 'bar'
+];
+```
+
 ## ValidatorStep
+
+This requires the Symfony Validator component, so make sure to include that
+in your project:
+
+```bash
+$ composer require symfony/validator
+```
+
+
 
 ## ValueConverterStep
 

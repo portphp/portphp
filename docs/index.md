@@ -5,11 +5,11 @@ an awesome data import/export pipeline:
 
 ```php
 <?php
-use Port\Reader\CsvReader;
-use Port\Writer\DbalWriter;
+use Port\Csv\CsvReader;
+use Port\Doctrine\DoctrineWriter;
 
 $reader = new CsvReader('input.csv');
-$writer = new DbalWriter();
+$writer = new DoctrineWriter();
 
 $writer->prepare();
 
