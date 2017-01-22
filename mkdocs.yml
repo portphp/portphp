@@ -6,6 +6,7 @@ pages:
 - readers.md
 - writers.md
 - stepaggregator.md
+- upgrading.md
 - contributing.md
 site_url: http://portphp.org
 repo_url: https://github.com/portphp/portphp
