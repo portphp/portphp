@@ -12,6 +12,5 @@ site_url: http://portphp.org
 repo_url: https://github.com/portphp/portphp
 markdown_extensions:
   - toc:
-      baselevel: 3
       permalink: true
   - admonition
