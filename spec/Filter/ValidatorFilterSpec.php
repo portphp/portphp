@@ -3,6 +3,7 @@
 namespace spec\Port\Filter;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use PhpSpec\ObjectBehavior;
@@ -69,9 +70,14 @@ class ValidatorFilterSpec extends ObjectBehavior
         $this->getViolations()->shouldReturn([1 => $list]);
     }
 
-    function it_validates_an_item_and_the_validation_fails_with_exception(ValidatorInterface $validator, Constraint $constraint, ConstraintViolationList $list)
-    {
-        $list->count()->willReturn(1);
+    function it_validates_an_item_and_the_validation_fails_with_exception(
+        ValidatorInterface $validator,
+        Constraint $constraint,
+        ConstraintViolation $violation
+    ) {
+        $violation->getMessage()->willReturn('Oops!');
+        $list = new ConstraintViolationList([$violation->getWrappedObject()]);
+
         $validator->validate($this->item1, Argument::type('Symfony\Component\Validator\Constraints\Collection'))->willReturn($list);
 
         $this->throwExceptions(true);
