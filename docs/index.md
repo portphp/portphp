@@ -5,8 +5,19 @@ an awesome data import/export pipeline:
 
 ```php
 <?php
+use Port\Reader\CsvReader;
+use Port\Writer\DbalWriter;
 
-Some example code here.
+$reader = new CsvReader('input.csv');
+$writer = new DbalWriter();
+
+$writer->prepare();
+
+// Iterate over the reader and write each row to the database
+foreach ($reader as $row) {
+    $writer->write($row);
+}
+$writer->finish();
 ```
 
 ## Installation
