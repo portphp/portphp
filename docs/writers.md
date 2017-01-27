@@ -9,11 +9,7 @@ your workflow.
 
 Writes CSV files.
 
-Install the CSV adapter:
-
-```bash
-$ composer require portphp/csv-adapter
-```
+{!include/csv.md!}
 
 Then use the writer:
 
@@ -32,20 +28,17 @@ $writer
     ->finish();
 ```
 
-## DoctrineWriter
+## Doctrine ORM/ODM
 
-Writes data through the Doctrine ORM.
+Writes data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
+and [ODM](http://docs.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/).
 
-Install the Doctrine adapter:
-
-```bash
-$ composer require portphp/doctrine-adapter
-```
+{!include/doctrine.md!}
 
 ```php
 use Port\Doctrine\DoctrineWriter;
 
-$writer = new DoctrineWriter($entityManager, 'YourNamespace:Employee');
+$writer = new DoctrineWriter($objectManager, 'YourNamespace:Employee');
 $writer
     ->prepare()
     ->writeItem(
@@ -97,11 +90,9 @@ $writer = new PdoWriter($pdo, 'my_table');
 
 ## ExcelWriter
 
-Writes data to an Excel file. Install the Excel adapter:
+Writes data to an Excel file. 
 
-```bash
-$ composer require portphp/excel-adapter
-```
+{!include/excel.md!}
 
 Then construct an ExcelWriter:
 

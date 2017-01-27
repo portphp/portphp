@@ -16,3 +16,11 @@ Workflow
 
 * Workflow became an interface.
 * The default workflow implementation is the [StepAggregator](stepaggregator.md).
+
+CSV
+---
+
+* For CSV reading and writing, you now need the port/csv package: 
+  `$ composer require port/csv`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.
+

@@ -7,11 +7,11 @@ and [writers](writers.md) on their own. Just create a reader and a writer and
 iterate over the reader:
 
 ```php
-use Port\Reader\CsvReader;
+use Port\Csv\CsvReader;
 use Port\Writer\DbalWriter;
 
 $reader = new CsvReader('input.csv');
-$writer = new DbalWriter();
+$writer = new DoctrineWriter();
 
 $writer->prepare();
 

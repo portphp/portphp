@@ -11,17 +11,13 @@ use Port\Steps\StepAggregator;
 
 $workflow = new StepAggregator($reader);
 ```
-## Arrays
+## ArrayReader
 
 Reads arrays. Most useful for testing your workflow.
 
 ## CsvReader
 
-Install the [CSV adapter](https://github.com/portphp/csv-adapter):
-
-```bash
-$ composer require portphp/csv
-```
+{!include/csv.md!}
 
 Then use the CsvReader to iterate over CSV files:
 
@@ -118,14 +114,13 @@ one of three ways:
 ## Doctrine DBAL
 
 Reads data through [Doctrine’s DBAL](http://www.doctrine-project.org/projects/dbal.html).
-Your project should include Doctrine’s DBAL package:
 
-```bash
-$ composer require doctrine/dbal
-```
+{!include/dbal.md!}
+
+Then use the DbalReader:
 
 ```php
-use Port\Reader\Dbal\DbalReader;
+use Port\Dbal\DbalReader;
 
 $reader = new DbalReader(
     $connection, // Instance of \Doctrine\DBAL\Connection
@@ -135,30 +130,24 @@ $reader = new DbalReader(
 
 ## Doctrine ORM/ODM
 
-Reads data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html).
+Reads data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
+and [ODM](http://docs.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/).
 
-Install the [Doctrine adapter](https://github.com/portphp/doctrine-adapter):
-
-```bash
-$ composer require portphp/doctrine-adaoter
-```
+{!include/doctrine.md!}
 
 Then use the reader:
 
 ```php
 use Port\Doctrine\DoctrineReader;
 
-$reader = new DoctrineReader($entityManager, 'Your\Namespace\Entity\User');
+$reader = new DoctrineReader($objectManager, 'YourNamespace:Employee');
 ```
 
 ## Excel
 
-An adapter for the [PHPExcel library](http://phpexcel.codeplex.com/). Install
-the Excel adapter:
+An adapter for the [PHPExcel library](http://phpexcel.codeplex.com/). 
 
-```bash
-$ composer require portphp/excel-adapter
-```
+{!include/excel.md!}
 
 Then use the reader to open an Excel file:
 

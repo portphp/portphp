@@ -14,3 +14,5 @@ markdown_extensions:
   - toc:
       permalink: true
   - admonition
+  - markdown_include.include:
+      base_path: docs
