@@ -1,13 +1,16 @@
 site_name: PortPHP Documentation
 theme: readthedocs
 pages:
-- index.md
-- quickstart.md
-- readers.md
-- writers.md
-- stepaggregator.md
-- upgrading.md
-- contributing.md
+- Introduction:
+  - index.md
+  - quickstart.md
+- COMPONENTS:
+  - readers.md
+  - writers.md
+  - workflow.md
+- ABOUT:
+  - upgrading.md
+  - contributing.md
 site_url: http://portphp.org
 repo_url: https://github.com/portphp/portphp
 markdown_extensions:
