@@ -10,7 +10,7 @@ class DateTimeToStringValueConverterTest extends \PHPUnit_Framework_TestCase
     {
         $value = new \DateTime('2010-01-01 01:00:00');
         $converter = new DateTimeToStringValueConverter;
-        $output = $converter->convert($value);
+        $output = call_user_func($converter, $value);
         $this->assertEquals('2010-01-01 01:00:00', $output);
     }
 
@@ -22,6 +22,6 @@ class DateTimeToStringValueConverterTest extends \PHPUnit_Framework_TestCase
     {
         $value = '14/10/2008 09:40:20';
         $converter = new DateTimeToStringValueConverter;
-        $converter->convert($value);
+        call_user_func($converter, $value);
     }
 }
