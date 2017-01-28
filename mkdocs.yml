@@ -4,11 +4,11 @@ pages:
 - Introduction:
   - index.md
   - quickstart.md
-- COMPONENTS:
+- Components:
   - readers.md
   - writers.md
   - workflow.md
-- ABOUT:
+- About:
   - upgrading.md
   - contributing.md
 site_url: http://portphp.org

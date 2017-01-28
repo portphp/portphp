@@ -11,8 +11,8 @@ the following lines:
    the workflow by adding filters, converters, mappers, etc.
 4. Process the workflow. This will read data from the reader, filters and 
    convert the data, and write the output to each of the writers. At the end of
-   the process, a `Result` object is returned which contains counts and 
-   information about (failed) reads and writes.
+   the process, a [Result](#the-workflow-result) object is returned which 
+   contains counts and information about (failed) reads and writes.
    
 In other words, the workflow acts as a *mediator* between a reader and one or 
 more writers, filters and converters. Schematically:
@@ -200,7 +200,7 @@ This is easy. Create a class that implements the `\Port\Steps\Step` interface:
 ```php
 use Port\Steps\Step;
 
-class AwesomeAdditionStep implements Step
+class SpecialAdditionStep implements Step
 {
     public function process(&$item)
     {
@@ -215,7 +215,7 @@ To create a filtering step, to reject the data:
 ```php
 use Port\Steps\Step;
 
-class AwesomeFilteringStep implements Step
+class SpecialFilteringStep implements Step
 {
     public function process(&$item)
     {
@@ -235,6 +235,4 @@ class AwesomeFilteringStep implements Step
 If you even more flexibility, you can implement your own 
 [Workflow](https://github.com/portphp/portphp/blob/master/src/Workflow.php).
 
-!!! note
-    Document more fully.
-
+{!include/todo.md!}

@@ -48,7 +48,8 @@ of the Composer documentation.
 
 ## Components
 
-Port consists of several components to aid you in processing data.
+Port consists of several [components](https://packagist.org/packages/portphp/) 
+to aid you in processing data:
 
 1. [Readers](readers.md) read data of different kinds from different sources.
 1. [Writers](writers.md) write data to a database, Excel or CSV file.

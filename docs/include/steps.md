@@ -1,4 +1,5 @@
-First install the [Steps package](https://github.com/portphp/steps):
+First install the [Steps package](https://github.com/portphp/steps), which
+includes the StepAggregator:
 
 ```bash
 $ composer require portphp/steps:1.0.x-dev portphp/portphp:1.0.x-dev

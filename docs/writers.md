@@ -28,7 +28,7 @@ $writer
     ->finish();
 ```
 
-## Doctrine ORM/ODM
+## DoctrineWriter
 
 Writes data through the [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 and [ODM](http://docs.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/).
@@ -74,20 +74,6 @@ the import file named 'Category' with an id, the writer will use metadata to get
 reference so that it can be associated properly. The DoctrineWriter will skip any association fields that are already
 objects in cases where a converter was used to retrieve the association.
 
-## PdoWriter
-
-Use the PDO writer for importing data into a relational database (such as
-MySQL, SQLite or MS SQL) without using Doctrine.
-
-```php
-use Port\Writer\PdoWriter;
-
-$pdo = new \PDO('sqlite::memory:');
-$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-$writer = new PdoWriter($pdo, 'my_table');
-```
-
 ## ExcelWriter
 
 Writes data to an Excel file. 
@@ -128,6 +114,21 @@ existing sheet:
 ```php
 $writer = new ExcelWriter($file, 'Old sheet');
 ```
+
+## PdoWriter
+
+Use the PDO writer for importing data into a relational database (such as
+MySQL, SQLite or MS SQL) without using Doctrine.
+
+```php
+use Port\Writer\PdoWriter;
+
+$pdo = new \PDO('sqlite::memory:');
+$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+$writer = new PdoWriter($pdo, 'my_table');
+```
+
 ## Symfony Console
 
 ### TableWriter
@@ -197,24 +198,84 @@ $output = new ConsoleOutput(...);
 $progressWriter = new ProgressWriter($output, $reader, 'normal', 100);
 ```
 
-## CallbackWriter
+## StreamMergeWriter
 
-Instead of implementing your own writer, you can use the quick solution the
-CallbackWriter offers:
+Suppose you have two stream writers handling fields differently according to 
+one of the fields. You should then use `StreamMergeWriter` to call the 
+appropriate Writer for you.
+
+The default field name is `discr` and can be changed with the
+`setDiscriminantField()` method.
 
 ```php
-use Port\Writer\CallbackWriter;
+<?php
 
-$workflow->addWriter(new CallbackWriter(function ($row) use ($storage) {
-    $storage->store($row);
-}));
+use Port\Writer\StreamMergeWriter;
+
+$writer = new StreamMergeWriter();
+
+$writer->addWriter('first writer', new MyStreamWriter());
+$writer->addWriter('second writer', new MyStreamWriter());
 ```
-## AbstractStreamWriter
+
+## XmlWriter
+
+Writes XML files.
+
+{!include/xml.md!}
+
+First construct PHP’s built-in XMLWriter, then wrap it in `Port\Xml\XmlWriter',
+additionally passing the filename to write to:
+
+```php
+<?php
+
+use Port\Xml\XmlWriter;
+
+$phpXmlWriter = new \XMLWriter();
+$writer = new XmlWriter($phpXmlWriter, 'output-file.xml');
+```
+
+Simply pass the writer to a [workflow](workflow.md) or use the writer on its own:
+
+```php
+<?php
+
+$writer->prepare();
+
+foreach ($data as $item) {
+    $writer->writeItem($item);
+}
+
+$writer->finish();
+```
+
+Pass the root and item elements as the third and fourth arguments:
+
+```php
+<?php
+
+$writer = new XmlWriter(
+    $phpXmlWriter,
+    'output-file.xml',
+    'things', // root item
+    'thing'   // element item
+);
+```
+
+
+## Create a writer
+
+Build your own writer by implementing the Writer interface.
+
+### AbstractStreamWriter
 
 Instead of implementing your own writer from scratch, you can use
 AbstractStreamWriter as a basis. Just implement `writeItem()`:
 
 ```php
+<?php
+
 use Port\Writer\AbstractStreamWriter;
 
 class MyStreamWriter extends AbstractStreamWriter
@@ -237,24 +298,16 @@ rewind($stream);
 echo stream_get_contents($stream);
 ```
 
-## StreamMergeWriter
+### CallbackWriter
 
-Suppose you have 2 stream writers handling fields differently according to one
-of the fields. You should then use `StreamMergeWriter` to call the appropriate
-Writer for you.
-
-The default field name is `discr` and can be changed with the
-`setDiscriminantField()` method.
+You can also use the quick solution the CallbackWriter offers:
 
 ```php
-use Port\Writer\StreamMergeWriter;
+<?php
 
-$writer = new StreamMergeWriter();
+use Port\Writer\CallbackWriter;
 
-$writer->addWriter('first writer', new MyStreamWriter());
-$writer->addWriter('second writer', new MyStreamWriter());
+$workflow->addWriter(new CallbackWriter(function ($row) use ($storage) {
+    $storage->store($row);
+}));
 ```
-
-## Create a writer
-
-Build your own writer by implementing the Writer interface.

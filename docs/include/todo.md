@@ -1,2 +1,2 @@
 !!! note "To do"
-    Please be patient while we document this part.
+    Please hang on while we document this part.
