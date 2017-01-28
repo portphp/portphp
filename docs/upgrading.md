@@ -32,3 +32,8 @@ Converters
 
 * All item converters (MappingItemConverter, NestedMappingItemConverter, CallbackItemConverter) 
   were removed.
+
+Filters
+-------
+
+* CallbackFilter was removed.

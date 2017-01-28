@@ -126,6 +126,8 @@ If any of the callables in the step returns false, the data will be skipped
 from processing:
 
 ```php
+<?php
+
 use Port\Reader\ArrayReader;
 use Port\Writer\ArrayWriter;
 use Port\Steps\StepAggregator as Workflow;
@@ -135,14 +137,30 @@ $step = new FilterStep();
 $step->add(function ($input) { return $input >= 3; });
 $step->add(function ($input) { return $input < 7; });
 
-$data = new ArrayReader(range(0, 10));
-$workflow = new Workflow();
+$reader = new ArrayReader(range(0, 10));
+$workflow = new Workflow($reader);
 $workflow->addWriter(new ArrayWriter($output));
 $workflow->addStep($step);
 
 $workflow->process();
 
 var_dump($output);   // [3, 4, 5, 6]
+```
+
+You can also use any of the supplied [filters](filters.md):
+
+```php
+<?php
+
+use Port\Filter\OffsetFilter;
+use Port\Steps\Step\FilterStep;
+
+// ...
+
+$step = new FilterStep();
+$step->add(new OffsetFilter(5, 10));
+
+// ...
 ```
 
 ## MappingStep
@@ -183,7 +201,12 @@ Your output data will now be:
 
 ## ValidatorStep
 
-{!include/todo.md!}
+Validate data items, only process them if they pass validation and collect all
+validation failures.
+
+```php
+
+```
 
 ## ArrayCheckStep
 

@@ -7,6 +7,7 @@ pages:
 - Components:
   - readers.md
   - writers.md
+  - filters.md
   - workflow.md
 - About:
   - upgrading.md
