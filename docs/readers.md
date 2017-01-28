@@ -1,10 +1,13 @@
-Readers read data that will be imported by iterating over it. This library
-includes a handful of readers. Additionally, you can easily
-[implement your own](#create-a-reader).
+# Readers
 
-Readers are optimised to use as little memory as possible
+Readers read data that will be imported by iterating over it. PortPHP ships
+with many readers: both for reading CSV and Excel files and for reading SQL and 
+NoSQL databases. Additionally, you can easily 
+[add your own readers](#create-a-reader).
 
-You can use readers on their own, or construct a workflow from them:
+Readers are optimized to use as little memory as possible.
+
+You can use readers on their own, or construct a [workflow](workflow.md) from them:
 
 ```php
 use Port\Steps\StepAggregator;
@@ -171,11 +174,12 @@ To read the specific sheet:
 $reader = new ExcelReader($file, null, 3);
 ```
 
-### OneToManyReader
+## OneToManyReader
 
-Allows for merging of two data sources (using existing readers), for example you have one CSV with orders and another with order items.
+Allows for merging of two data sources (using existing readers), for example 
+you have one CSV with orders and another with order items.
 
-Imagine two CSV's like the following:
+Imagine two CSVs like the following:
 
 ```
 OrderId,Price
@@ -247,9 +251,28 @@ The resulting data will look like:
 ];
 ```
 
+## PdoReader
+
+{!include/pdo.md!}
+
+First construct some [PDO](http://php.net/manual/en/book.pdo.php) object:
+
+```php
+// Construct some PDO object, e.g. SQLite
+$pdo = new \PDO('sqlite::memory:');
+```
+
+Then create the PdoReader with that PDO object and an SQL query:
+
+```php
+use Port\Pdo\PdoReader;
+
+$reader = new PdoReader($pdo, 'SELECT u.id, u.username, g.name FROM `pdo_user`');
+```
+
 ## Create a reader
 
 You can create your own data reader by implementing the
-[Reader](/../src/Reader.php) interface, which extends the PHP
+[Reader](https://github.com/portphp/portphp/blob/master/src/Reader.php) interface, which extends the PHP
 [Iterator interface](http://php.net/manual/en/class.iterator.php). To get an
 idea, have a look at the [readers included in this library](https://github.com/portphp/portphp/tree/master/src/Reader).

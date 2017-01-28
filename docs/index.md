@@ -5,11 +5,12 @@ an awesome data import/export pipeline:
 
 ```php
 <?php
+
 use Port\Csv\CsvReader;
 use Port\Doctrine\DoctrineWriter;
 
 $reader = new CsvReader('input.csv');
-$writer = new DoctrineWriter();
+$writer = new DoctrineWriter($entityManager, 'YourApp:Person');
 
 $writer->prepare();
 
@@ -17,8 +18,20 @@ $writer->prepare();
 foreach ($reader as $row) {
     $writer->write($row);
 }
+
 $writer->finish();
 ```
+
+## Overview
+
+Broadly speaking, you can use PortPHP in two ways:
+
+1. organize your import/export pipeline around a [workflow](workflow.md); or
+2. use one or more of the components on their own, such as [readers](readers.md),
+   [writers](writers.md) or [converters](converters.md).
+   
+   
+
 
 ## Installation
 
@@ -26,14 +39,14 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this package:
 
 ```bash
-$ composer require portphp/steps
+$ composer require portphp/steps:1.0.x-dev
 ```
 
 This command requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
-# Components
+## Components
 
 Port consists of several components to aid you in processing data.
 

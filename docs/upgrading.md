@@ -15,7 +15,7 @@ Workflow
 --------
 
 * Workflow became an interface.
-* The default workflow implementation is the [StepAggregator](stepaggregator.md).
+* The default workflow implementation is the [StepAggregator](workflow.md).
 
 CSV
 ---
@@ -24,3 +24,9 @@ CSV
   `$ composer require port/csv`. See the [docs](https://portphp.readthedocs.io) 
   for more information.
 
+Excel
+-----
+
+* For Excel reading and writing, you now need the port/excel package: 
+  `$ composer require port/excel`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.

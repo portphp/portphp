@@ -128,21 +128,19 @@ existing sheet:
 ```php
 $writer = new ExcelWriter($file, 'Old sheet');
 ```
-## ConsoleTableWriter
+## Symfony Console
+
+### TableWriter
 
 This writer displays items as table on console output for debug purposes
 when you start the workflow from the command-line.
 
-Install the [Console adapter](https://github.com/portphp/console-adapter):
-
-```bash
-$ composer require portphp/console
-```
+{!include/symfony-console.md!}
 
 ```php
 use Port\Reader;
-use Port\Console\ConsoleTableWriter;
 use Port\Steps\StepAggregator as Workflow;
+use Port\SymfonyConsole\TableWriter;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Helper\Table;
 
@@ -155,26 +153,20 @@ $table = new Table($output);
 $table->setStyle('compact');
 
 $workflow = new Workflow($reader);
-$workflow->addWriter(new ConsoleTableWriter($output, $table));
+$workflow->addWriter(new TableWriter($output, $table));
 ```
 
-## ConsoleProgressWriter
+### ProgressWriter
 
 This writer displays import progress when you start the workflow from the
 command-line.
 
-Install the [Console adapter](https://github.com/portphp/console-adapter):
-
-```bash
-$ composer require portphp/console
-```
-
 ```php
-use Port\Console\ConsoleProgressWriter;
+use Port\SymfonyConsole\ProgressWriter;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 $output = new ConsoleOutput(...);
-$progressWriter = new ConsoleProgressWriter($output, $reader);
+$progressWriter = new ProgressWriter($output, $reader);
 
 // Most useful when added to a workflow
 $workflow->addWriter($progressWriter);
@@ -185,13 +177,12 @@ These include the output format and
 the redraw frequency. You can read more about the options [here](http://symfony.com/doc/current/components/console/helpers/progressbar.html).
 
 You might want to set the redraw rate higher than the default as it can slow
-down the import/export process quite a bit
-as it will update the console text after every record has been processed by the
- `Workflow`.
+down the import/export process quite a bit as it will update the console text 
+after every record has been processed by the Workflow.
 
 ```php
 $output = new ConsoleOutput(...);
-$progressWriter = new ConsoleProgressWriter($output, $reader, 'debug', 100);
+$progressWriter = new ProgressWriter($output, $reader, 'debug', 100);
 ```
 
 Above we set the output format to 'debug' and the redraw rate to 100. This will
@@ -203,7 +194,7 @@ a more simple formatter if you wish:
 
 ```php
 $output = new ConsoleOutput(...);
-$progressWriter = new ConsoleProgressWriter($output, $reader, 'normal', 100);
+$progressWriter = new ProgressWriter($output, $reader, 'normal', 100);
 ```
 
 ## CallbackWriter
