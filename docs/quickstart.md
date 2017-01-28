@@ -26,3 +26,5 @@ $writer->finish();
 
 If you’re building re-usable import processes, it’s better to use the
 [workflow](workflow.md).
+
+See [Examples](examples.md) for full usage examples.
