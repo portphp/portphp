@@ -4,10 +4,12 @@ pages:
 - Introduction:
   - index.md
   - quickstart.md
+  - examples.md
 - Components:
   - readers.md
   - writers.md
   - filters.md
+  - converters.md
   - workflow.md
 - About:
   - upgrading.md
