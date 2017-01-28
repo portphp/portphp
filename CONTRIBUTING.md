@@ -39,6 +39,7 @@ Write your code and add tests. Then run the tests:
 
 ```bash
 $ vendor/bin/phpunit
+$ vendor/bin/phpspec
 ```
 
 Commit your changes and push them to GitHub:
