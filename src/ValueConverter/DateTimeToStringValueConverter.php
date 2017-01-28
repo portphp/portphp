@@ -33,7 +33,7 @@ class DateTimeToStringValueConverter
      * @return \DateTime|string
      * @throws UnexpectedValueException
      */
-    public function convert($input)
+    public function __invoke($input)
     {
         if (!$input) {
             return;
