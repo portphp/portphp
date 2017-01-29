@@ -35,14 +35,12 @@
             "Port\\Tests\\": "tests/"
         }
     },
-    "conflict": {
-        "symfony/validator": "<2.5"
-    },
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
         "phpunit/phpunit": "^4.0",
-        "phpspec/phpspec": "^2.1"
+        "phpspec/phpspec": "^2.1",
+        "doctrine/instantiator": "^1.0.5"
     },
     "extra": {
         "branch-alias": {
