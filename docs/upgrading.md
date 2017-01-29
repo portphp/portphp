@@ -17,13 +17,24 @@ Workflow
 * The Workflow class became an interface.
 * The default workflow implementation is the [StepAggregator](workflow.md).
 
-Readers and writers
--------------------
+Readers
+-------
 
-* For CSV reading and writing, you now need the port/csv package: 
+* The `Reader::getFields()` method was removed.
+* For CSV reading, you now need the port/csv package: 
   `$ composer require port/csv`. See the [docs](https://portphp.readthedocs.io) 
   for more information.
-* For Excel reading and writing, you now need the port/excel package: 
+* For Excel reading, you now need the port/excel package: 
+  `$ composer require port/excel`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.
+  
+Writers
+-------
+
+* For CSV reading, you now need the port/csv package: 
+  `$ composer require port/csv`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.
+* For Excel reading, you now need the port/excel package: 
   `$ composer require port/excel`. See the [docs](https://portphp.readthedocs.io) 
   for more information.
 
