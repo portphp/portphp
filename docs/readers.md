@@ -5,7 +5,10 @@ with many readers: both for reading CSV and Excel files and for reading SQL and
 NoSQL databases. Additionally, you can easily 
 [add your own readers](#create-a-reader).
 
-Readers are optimized to use as little memory as possible.
+Readers are:
+- iterable, for easy processing;
+- optimized to use as little memory as possible, which is particularly 
+  important in case of large datasets. 
 
 You can use readers on their own, or construct a [workflow](workflow.md) from them:
 
@@ -16,7 +19,27 @@ $workflow = new StepAggregator($reader);
 ```
 ## ArrayReader
 
-Reads arrays. Most useful for testing your workflow.
+A simple reader for array data, which is most useful when testing your
+workflow:
+
+```php
+<?php
+
+use Port\Reader\ArrayReader;
+
+$reader = new ArrayReader([
+    // Item 1
+    [
+        'name' => 'James Bond',
+        'code_name' => '007'
+    ],
+    // Item 2
+    [
+        'name' => 'Bill',
+        'code_name' => '008'
+    ],
+]);
+```
 
 ## CsvReader
 
@@ -181,13 +204,13 @@ you have one CSV with orders and another with order items.
 
 Imagine two CSVs like the following:
 
-```
+```csv
 OrderId,Price
 1,30
 2,15
 ```
 
-```
+```csv
 OrderId,Name
 1,"Super Cool Item 1"
 1,"Super Cool Item 2"
@@ -200,15 +223,26 @@ which you specify in the OneToManyReader.
 The code would look something like:
 
 ```php
+<?php
+
+use Port\Csv\CsvReader;
+use Port\Reader\OneToManyReader;
+
 $orderFile = new \SplFileObject("orders.csv");
-$orderReader = new CsvReader($file, $orderFile);
+$orderReader = new CsvReader($orderFile);
 $orderReader->setHeaderRowNumber(0);
 
 $orderItemFile = new \SplFileObject("order_items.csv");
-$orderItemReader = new CsvReader($file, $orderFile);
+$orderItemReader = new CsvReader($orderItemFile);
 $orderItemReader->setHeaderRowNumber(0);
 
-$oneToManyReader = new OneToManyReader($orderReader, $orderItemReader, 'items', 'OrderId', 'OrderId');
+$oneToManyReader = new OneToManyReader(
+    $orderReader,
+    $orderItemReader,
+    'items',
+    'OrderId',
+    'OrderId'
+);
 ```
 
 The third parameter is the key which the order item data will be nested under. This will be an array of order items.
