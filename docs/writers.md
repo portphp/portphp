@@ -20,7 +20,7 @@ $writer = new CsvWriter();
 $writer->setStream(fopen('output.csv', 'w'));
 
 // Write column headers:
-$writer->writeItem(['first', 'last')];
+$writer->writeItem(['first', 'last']);
 
 $writer
     ->writeItem(['James', 'Bond'])
