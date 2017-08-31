@@ -64,7 +64,7 @@ class Event
 First make sure to include the dependencies:
 
 ```bash
-$ composer require portphp/csv:1.0.x-dev portphp/doctrine:1.0.x-dev portphp/steps:1.0.x-dev
+$ composer require portphp/csv portphp/doctrine portphp/steps
 ```
 
 Then you can import the CSV and save it as your entity in the following way.

@@ -6,6 +6,7 @@ NoSQL databases. Additionally, you can easily
 [add your own readers](#create-a-reader).
 
 Readers are:
+
 - iterable, for easy processing;
 - optimized to use as little memory as possible, which is particularly 
   important in case of large datasets. 

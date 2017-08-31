@@ -8,10 +8,13 @@ The documentation for PortPHP is created using [MkDocs](http://www.mkdocs.org),
 a lightweight solution based on Markdown.
  
 The documentation is hosted on [Read the Docs](http://portphp.readthedocs.io).
-To build the documentation on your local machine, first install the 
-dependencies:
+To build the documentation on your local machine, clone the repository and
+install the dependencies: 
+
 
 ```bash
+$ git clone https://github.com/portphp/portphp.git
+$ cd portphp
 $ pip install -r docs/requirements.txt
 ```
 

@@ -24,27 +24,34 @@ $writer->finish();
 
 ## Overview
 
+PortPHP offers a clear and simple API that abstracts from specific data sources
+and targets, including Excel and CSV files, SQL and other databases, and
+streams. This abstraction enables you to freely exchange data between these
+media.
+
 Broadly speaking, you can use PortPHP in two ways:
 
 1. organize your import/export pipeline around a [workflow](workflow.md); or
 2. use one or more of the components on their own, such as [readers](readers.md),
    [writers](writers.md) or [converters](converters.md).
    
-   
-
-
 ## Installation
 
 Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this package:
 
 ```bash
-$ composer require portphp/steps:1.0.x-dev
+$ composer require portphp/steps
 ```
 
-This command requires you to have Composer installed globally, as explained
-in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
-of the Composer documentation.
+This command requires you to have 
+[Composer installed globally](https://getcomposer.org/doc/00-intro.md).
+
+Then include Composer’s autoloader in your project:
+
+```php
+require_once 'vendor/autoload.php';
+```
 
 ## Components
 

@@ -2,7 +2,7 @@ First install the [Steps package](https://github.com/portphp/steps), which
 includes the StepAggregator:
 
 ```bash
-$ composer require portphp/steps:1.0.x-dev portphp/portphp:1.0.x-dev
+$ composer require portphp/steps
 ```
 
 And include Composer’s autoloader in your project:

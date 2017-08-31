@@ -1,5 +1,8 @@
 # Writers
 
+Writers output the data to  
+take the data from the [readers](readers.md)
+
 ## ArrayWriter
 
 Resembles the [ArrayReader](#arrayreader). Probably most useful for testing
