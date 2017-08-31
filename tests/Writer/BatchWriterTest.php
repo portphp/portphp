@@ -2,19 +2,34 @@
 
 namespace Port\Tests\Writer;
 
+use PHPUnit_Framework_MockObject_MockObject as Mock;
+use Port\Writer;
 use Port\Writer\BatchWriter;
 
 class BatchWriterTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Mock|Writer
+     */
+    private $delegate;
+
+    protected function setUp()
+    {
+        $this->delegate = $this->getMock('Port\Writer');
+    }
+
     public function testWriteItem()
     {
-        $delegate = $this->getMock('Port\Writer');
-        $writer = new BatchWriter($delegate);
+        $writer = new BatchWriter($this->delegate);
 
-        $delegate->expects($this->once())
+        $this
+            ->delegate
+            ->expects($this->once())
             ->method('prepare');
 
-        $delegate->expects($this->never())
+        $this
+            ->delegate
+            ->expects($this->never())
             ->method('writeItem');
 
         $writer->prepare();
@@ -23,15 +38,32 @@ class BatchWriterTest extends \PHPUnit_Framework_TestCase
 
     public function testFlush()
     {
-        $delegate = $this->getMock('Port\Writer');
-        $writer = new BatchWriter($delegate);
+        $writer = new BatchWriter($this->delegate);
 
-        $delegate->expects($this->exactly(20))
+        $this
+            ->delegate
+            ->expects($this->exactly(20))
             ->method('writeItem');
 
         $writer->prepare();
 
         for ($i = 0; $i < 20; $i++) {
+            $writer->writeItem(['Test']);
+        }
+    }
+
+    public function testMultipleBatches()
+    {
+        $writer = new BatchWriter($this->delegate, 1);
+
+        $this
+            ->delegate
+            ->expects($this->exactly(3))
+            ->method('writeItem');
+
+        $writer->prepare();
+
+        for ($i = 0; $i < 3; $i++) {
             $writer->writeItem(['Test']);
         }
     }
