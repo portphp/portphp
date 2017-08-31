@@ -24,13 +24,13 @@ class MappingValueConverter
 
     public function __invoke($input)
     {
-        if (!isset($this->mapping[$input])) {
-            throw new UnexpectedValueException(sprintf(
-                'Cannot find mapping for value "%s"',
-                $input
-            ));
+        if (isset($this->mapping[$input]) || array_key_exists($input, $this->mapping)) {
+            return $this->mapping[$input];
         }
 
-        return $this->mapping[$input];
+        throw new UnexpectedValueException(sprintf(
+            'Cannot find mapping for value "%s"',
+            $input
+        ));
     }
 }
