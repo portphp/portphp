@@ -25,10 +25,11 @@ $writer->setStream(fopen('output.csv', 'w'));
 // Write column headers:
 $writer->writeItem(['first', 'last']);
 
-$writer
-    ->writeItem(['James', 'Bond'])
-    ->writeItem(['Auric', 'Goldfinger'])
-    ->finish();
+// Write some data
+$writer->writeItem(['James', 'Bond']);
+$writer->writeItem(['Auric', 'Goldfinger'])
+
+$writer->finish();
 ```
 
 ## DoctrineWriter
@@ -42,15 +43,14 @@ and [ODM](http://docs.doctrine-project.org/projects/doctrine-mongodb-odm/en/late
 use Port\Doctrine\DoctrineWriter;
 
 $writer = new DoctrineWriter($objectManager, 'YourNamespace:Employee');
-$writer
-    ->prepare()
-    ->writeItem(
-        [
-            'first' => 'James',
-            'last'  => 'Bond'
-        ]
-    )
-    ->finish();
+$writer->prepare();
+$writer->writeItem(
+    [
+        'first' => 'James',
+        'last'  => 'Bond'
+    ]
+);
+$writer->finish();
 ```
 
 By default, DoctrineWriter will truncate your data before running the workflow.
@@ -91,11 +91,10 @@ use Port\Excel\ExcelWriter;
 $file = new \SplFileObject('data.xlsx', 'w');
 $writer = new ExcelWriter($file);
 
-$writer
-    ->prepare()
-    ->writeItem(['first', 'last'])
-    ->writeItem(['first' => 'James', 'last' => 'Bond'])
-    ->finish();
+$writer->prepare();
+$writer->writeItem(['first', 'last'])
+$writer->writeItem(['first' => 'James', 'last' => 'Bond'])
+$writer->finish();
 ```
 
 You can specify the name of the sheet to write to:
