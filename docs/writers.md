@@ -27,7 +27,7 @@ $writer->writeItem(['first', 'last']);
 
 // Write some data
 $writer->writeItem(['James', 'Bond']);
-$writer->writeItem(['Auric', 'Goldfinger'])
+$writer->writeItem(['Auric', 'Goldfinger']);
 
 $writer->finish();
 ```
@@ -92,8 +92,8 @@ $file = new \SplFileObject('data.xlsx', 'w');
 $writer = new ExcelWriter($file);
 
 $writer->prepare();
-$writer->writeItem(['first', 'last'])
-$writer->writeItem(['first' => 'James', 'last' => 'Bond'])
+$writer->writeItem(['first', 'last']);
+$writer->writeItem(['first' => 'James', 'last' => 'Bond']);
 $writer->finish();
 ```
 
