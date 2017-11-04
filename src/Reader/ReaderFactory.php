@@ -1,6 +1,6 @@
 <?php
 
-namespace Port\Csv;
+namespace Port\Reader;
 
 use Port\Reader;
 
