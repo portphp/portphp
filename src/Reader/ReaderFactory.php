@@ -7,7 +7,7 @@ use Port\Reader;
 /**
  * Factory interface to create file based readers
  *
- * @author Lukas Kahwe Smith <smith@pooteeweet.org
+ * @author Lukas Kahwe Smith <smith@pooteeweet.org>
  */
 interface ReaderFactory
 {
