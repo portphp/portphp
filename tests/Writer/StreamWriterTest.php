@@ -2,9 +2,10 @@
 
 namespace Port\Tests\Writer;
 
+use PHPUnit\Framework\TestCase;
 use Port\Writer\AbstractStreamWriter;
 
-abstract class StreamWriterTest extends \PHPUnit_Framework_TestCase
+abstract class StreamWriterTest extends TestCase
 {
     protected $stream;
 

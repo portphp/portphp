@@ -2,12 +2,12 @@
 
 namespace Port\Filter;
 
-use Port\Filter\OffsetFilter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Ville Mattila <ville@eventio.fi>
  */
-class OffsetFilterTest extends \PHPUnit_Framework_TestCase
+class OffsetFilterTest extends TestCase
 {
 
     private function applyFilter(OffsetFilter $filter, array $items) {

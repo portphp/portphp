@@ -2,6 +2,7 @@
 
 namespace Port\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Port\Result;
 
 /**
@@ -9,7 +10,7 @@ use Port\Result;
  *
  * @author Aydin Hassan <aydin@hotmail.co.uk>
  */
-class ResultTest extends \PHPUnit_Framework_TestCase
+class ResultTest extends TestCase
 {
     public function testResultName()
     {

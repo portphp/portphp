@@ -2,9 +2,10 @@
 
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\MappingValueConverter;
 
-class MappingValueConverterTest extends \PHPUnit_Framework_TestCase
+class MappingValueConverterTest extends TestCase
 {
     public function testConvert()
     {
@@ -18,7 +19,7 @@ class MappingValueConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Port\Exception\UnexpectedValueException
+     * @expectedException \Port\Exception\UnexpectedValueException
      * @expectedExceptionMessage Cannot find mapping for value "unexpected value"
      */
     public function testExceptionIsThrownWhenValueIsNotFound()

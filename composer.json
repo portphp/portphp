@@ -38,9 +38,10 @@
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^5.4",
+        "phpunit/phpunit": "^5.7 || ^6.0",
         "phpspec/phpspec": "^3.0 || ^4.0",
-        "doctrine/instantiator": "^1.0.5"
+        "doctrine/instantiator": "^1.0.5",
+        "doctrine/common": "^2.7"
     },
     "extra": {
         "branch-alias": {

@@ -2,12 +2,13 @@
 
 namespace Port\Tests\Writer;
 
+use PHPUnit\Framework\TestCase;
 use Port\Writer\CallbackWriter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  */
-class CallbackWriterTest extends \PHPUnit_Framework_TestCase
+class CallbackWriterTest extends TestCase
 {
     public function testPrepare()
     {

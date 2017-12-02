@@ -2,12 +2,13 @@
 
 namespace Port\Tests\Reader;
 
+use PHPUnit\Framework\TestCase;
 use Port\Reader\CountableIteratorReader;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class CountableIteratorReaderTest extends \PHPUnit_Framework_TestCase
+class CountableIteratorReaderTest extends TestCase
 {
     public function testCount()
     {

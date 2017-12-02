@@ -2,20 +2,20 @@
 
 namespace Port\Tests\ValueConverter;
 
+use Doctrine\Common\Persistence\ObjectRepository;
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\StringToObjectConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  */
-class StringToObjectConverterTest extends \PHPUnit_Framework_TestCase
+class StringToObjectConverterTest extends TestCase
 {
     public function testConvert()
     {
-        $repository = $this->getMockBuilder(
-            'Doctrine\\Common\\Persistence\\ObjectRepository',
-            ['find', 'findAll', 'findBy', 'findOneBy', 'getClassName', 'findOneByName']
-        )
-            ->setMethods(['findOneByName'])
+        $repository = $this->getMockBuilder(ObjectRepository::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['find', 'findAll', 'findBy', 'findOneBy', 'getClassName', 'findOneByName'])
             ->getMock();
 
         $converter = new StringToObjectConverter($repository, 'name');
