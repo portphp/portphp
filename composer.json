@@ -39,7 +39,7 @@
         "ext-iconv": "*",
         "ext-mbstring": "*",
         "phpunit/phpunit": "^5.0",
-        "phpspec/phpspec": "^4.0",
+        "phpspec/phpspec": "^3.0 || ^4.0",
         "doctrine/instantiator": "^1.0.5"
     },
     "extra": {
