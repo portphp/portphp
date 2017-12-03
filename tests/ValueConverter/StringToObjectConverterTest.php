@@ -1,6 +1,6 @@
 <?php
 
-namespace Port\ValueConverter;
+namespace Port\Tests\ValueConverter;
 
 use Port\ValueConverter\StringToObjectConverter;
 
@@ -11,10 +11,12 @@ class StringToObjectConverterTest extends \PHPUnit_Framework_TestCase
 {
     public function testConvert()
     {
-        $repository = $this->getMock(
+        $repository = $this->getMockBuilder(
             'Doctrine\\Common\\Persistence\\ObjectRepository',
-            array('find', 'findAll', 'findBy', 'findOneBy', 'getClassName', 'findOneByName')
-        );
+            ['find', 'findAll', 'findBy', 'findOneBy', 'getClassName', 'findOneByName']
+        )
+            ->setMethods(['findOneByName'])
+            ->getMock();
 
         $converter = new StringToObjectConverter($repository, 'name');
 

@@ -15,7 +15,7 @@ class BatchWriterTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->delegate = $this->getMock('Port\Writer');
+        $this->delegate = $this->createMock('Port\Writer');
     }
 
     public function testWriteItem()

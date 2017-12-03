@@ -18,7 +18,7 @@ class ValidatorFilterTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->validator = $this->getMock('Symfony\Component\Validator\Validator\ValidatorInterface');
+        $this->validator = $this->createMock('Symfony\Component\Validator\Validator\ValidatorInterface');
         $this->filter = new ValidatorFilter($this->validator);
     }
 
@@ -39,7 +39,7 @@ class ValidatorFilterTest extends \PHPUnit_Framework_TestCase
     {
         $item = array('foo' => 'bar');
 
-        $violation = $this->getMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
+        $violation = $this->createMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
         $list = new ConstraintViolationList(array($violation));
 
         $this->validator->expects($this->once())
@@ -57,7 +57,7 @@ class ValidatorFilterTest extends \PHPUnit_Framework_TestCase
 
         $item = array('foo' => 'bar');
 
-        $violation = $this->getMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
+        $violation = $this->createMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
         $violation->expects($this->any())->method('getMessage')->willReturn('Message');
         $list = new ConstraintViolationList(array($violation));
 
@@ -91,7 +91,7 @@ class ValidatorFilterTest extends \PHPUnit_Framework_TestCase
 
         $item = array('foo' => 'bar');
 
-        $violation = $this->getMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
+        $violation = $this->createMock('Symfony\\Component\\Validator\\ConstraintViolationInterface');
         $list = new ConstraintViolationList(array($violation));
 
         $this->validator->expects($this->exactly(2))
