@@ -9,4 +9,10 @@ namespace Port;
  */
 interface Reader extends \Iterator
 {
+    /**
+     * Get column headers
+     *
+     * @return array
+     */
+    public function getColumnHeaders();
 }

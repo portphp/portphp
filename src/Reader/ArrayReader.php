@@ -9,4 +9,16 @@ namespace Port\Reader;
  */
 class ArrayReader extends \ArrayIterator implements CountableReader
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function getColumnHeaders()
+    {
+        $current = $this->current();
+        if (empty($current)) {
+            reutrn array();
+        }
+
+        return array_keys($current);
+    }
 }
