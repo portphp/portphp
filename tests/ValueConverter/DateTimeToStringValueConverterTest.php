@@ -2,9 +2,10 @@
 
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\DateTimeToStringValueConverter;
 
-class DateTimeToStringValueConverterTest extends \PHPUnit_Framework_TestCase
+class DateTimeToStringValueConverterTest extends TestCase
 {
     public function testConvertWithoutOutputFormatReturnsString()
     {

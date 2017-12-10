@@ -2,13 +2,14 @@
 
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\ArrayValueConverterMap;
 use Port\ValueConverter\CallbackValueConverter;
 
 /**
  * @author Christoph Rosse <christoph@rosse.at>
  */
-class ArrayValueConverterMapTest extends \PHPUnit_Framework_TestCase
+class ArrayValueConverterMapTest extends TestCase
 {
     /**
      * @expectedException InvalidArgumentException

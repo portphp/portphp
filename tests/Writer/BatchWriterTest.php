@@ -2,11 +2,12 @@
 
 namespace Port\Tests\Writer;
 
+use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject as Mock;
 use Port\Writer;
 use Port\Writer\BatchWriter;
 
-class BatchWriterTest extends \PHPUnit_Framework_TestCase
+class BatchWriterTest extends TestCase
 {
     /**
      * @var Mock|Writer

@@ -2,9 +2,10 @@
 
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\DateTimeValueConverter;
 
-class DateTimeValueConverterTest extends \PHPUnit_Framework_TestCase
+class DateTimeValueConverterTest extends TestCase
 {
     public function testConvertWithoutInputOrOutputFormatReturnsDateTimeInstance()
     {
@@ -45,7 +46,7 @@ class DateTimeValueConverterTest extends \PHPUnit_Framework_TestCase
     {
         $value = '14/10/2008 09:40:20';
         $converter = new DateTimeValueConverter('d-m-y', 'd-M-Y');
-        $this->setExpectedException("UnexpectedValueException", "14/10/2008 09:40:20 is not a valid date/time according to format d-m-y");
+        $this->expectException("UnexpectedValueException", "14/10/2008 09:40:20 is not a valid date/time according to format d-m-y");
         call_user_func($converter, $value);
     }
 

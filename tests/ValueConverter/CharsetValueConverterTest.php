@@ -1,12 +1,13 @@
 <?php
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\CharsetValueConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  */
-class CharsetValueConverterTest extends \PHPUnit_Framework_TestCase
+class CharsetValueConverterTest extends TestCase
 {
     public function testConvert()
     {

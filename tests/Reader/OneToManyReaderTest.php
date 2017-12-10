@@ -2,6 +2,7 @@
 
 namespace Port\Tests\Reader;
 
+use PHPUnit\Framework\TestCase;
 use Port\Reader\ArrayReader;
 use Port\Reader\OneToManyReader;
 
@@ -10,7 +11,7 @@ use Port\Reader\OneToManyReader;
  * @package Port\Tests\Reader
  * @author Aydin Hassan <aydin@hotmail.co.uk>
  */
-class OneToManyReaderTest extends \PHPUnit_Framework_TestCase
+class OneToManyReaderTest extends TestCase
 {
     public function testReaderMergesOneToMany()
     {
@@ -163,7 +164,7 @@ class OneToManyReaderTest extends \PHPUnit_Framework_TestCase
         $rightReader  = new ArrayReader($rightData);
         $oneToManyReader  = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->setExpectedException('Port\Exception\ReaderException', 'Left Row: "0" Reader already contains a field named "items". Please choose a different nest key field');
+        $this->expectException('Port\Exception\ReaderException', 'Left Row: "0" Reader already contains a field named "items". Please choose a different nest key field');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();
@@ -187,7 +188,7 @@ class OneToManyReaderTest extends \PHPUnit_Framework_TestCase
         $rightReader = new ArrayReader($rightData);
         $oneToManyReader = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->setExpectedException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
+        $this->expectException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();
@@ -212,7 +213,7 @@ class OneToManyReaderTest extends \PHPUnit_Framework_TestCase
         $rightReader = new ArrayReader($rightData);
         $oneToManyReader = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->setExpectedException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
+        $this->expectException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();

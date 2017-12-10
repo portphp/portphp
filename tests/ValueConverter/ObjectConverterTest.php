@@ -2,12 +2,13 @@
 
 namespace Port\Tests\ValueConverter;
 
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\ObjectConverter;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz
  */
-class ObjectConverterTest extends \PHPUnit_Framework_TestCase
+class ObjectConverterTest extends TestCase
 {
     public function testGetAndSetPropertyPath()
     {

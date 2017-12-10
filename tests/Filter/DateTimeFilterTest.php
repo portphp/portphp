@@ -2,10 +2,10 @@
 
 namespace Port\Filter;
 
-use Port\Filter\DateTimeThresholdFilter;
+use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\DateTimeValueConverter;
 
-class DateTimeFilterTest extends \PHPUnit_Framework_TestCase
+class DateTimeFilterTest extends TestCase
 {
     public function setUp()
     {
