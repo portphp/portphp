@@ -78,6 +78,25 @@ $filter->add('email', new Assert\Email());
 $filter->add('sku', new Assert\NotBlank());
 ```
 
+Here we add the validation assertions manually. Alternatively, you can choose to 
+read assertions from annotations on the objects that you want to validate (or 
+any other metadata source). To do so, use a validator that is pre-configured 
+with [metadata resources](http://symfony.com/doc/current/components/validator/resources.html).
+
+So, for instance in a Symfony project:
+
+```php
+<?php
+
+use Port\Filter\ValidatorFilter;
+
+// Pre-configured for looking at object annotations etc.
+$validator = $container->get('validator'); 
+$filter = new ValidatorFilter($validator);
+
+// No need to manually add assertions now
+```
+
 The default behaviour for the validator is to collect all violations and skip 
 each invalid row. If you want to stop on the first failing row you can call 
 `ValidatorFilter::throwExceptions()`, which throws a ValidationException 
