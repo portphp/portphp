@@ -7,7 +7,7 @@ the following lines:
 1. Construct a [reader](readers.md).
 2. Construct a workflow, passing the reader to it. Optionally set a logger on 
    the workflow. 
-3. Add at least on [writer](writers.md) to the workflow. Optionally, customize 
+3. Add at least one [writer](writers.md) to the workflow. Optionally, customize 
    the workflow by adding filters, converters, mappers, etc.
 4. Process the workflow. This will read data from the reader, filters and 
    convert the data, and write the output to each of the writers. At the end of
