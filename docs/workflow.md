@@ -227,10 +227,12 @@ use Port\Steps\Step;
 
 class SpecialAdditionStep implements Step
 {
-    public function process(&$item)
+    public function process($item, callable $next)
     {
         // This property will be added to your data
         $item['extra_property'] = 'ooh this is custom';
+
+        return $next($item);
     }
 }
 ```
@@ -242,7 +244,7 @@ use Port\Steps\Step;
 
 class SpecialFilteringStep implements Step
 {
-    public function process(&$item)
+    public function process($item, callable $next)
     {
         // Only accept items whose ding is dong.
         if ($item['ding'] == 'dong') {
