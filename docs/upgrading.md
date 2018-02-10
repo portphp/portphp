@@ -17,6 +17,11 @@ Workflow
 * The Workflow class became an interface.
 * The default workflow implementation is the [StepAggregator](workflow.md).
 
+Step
+----
+
+ * The `Step` interface has changed from `public function process(&$item);` to `public function process($item, callable $next);`
+
 Readers
 -------
 
