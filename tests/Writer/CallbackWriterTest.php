@@ -10,6 +10,9 @@ use Port\Writer\CallbackWriter;
  */
 class CallbackWriterTest extends TestCase
 {
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testPrepare()
     {
         $callable = function(array $item) {
@@ -33,6 +36,9 @@ class CallbackWriterTest extends TestCase
         $this->assertEquals('bar,foo', $string);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testFinish()
     {
         $callable = function(array $item) {

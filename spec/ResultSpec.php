@@ -7,9 +7,10 @@ use Prophecy\Argument;
 
 class ResultSpec extends ObjectBehavior
 {
-    function let(\DateTime $startTime, \DateTime $endTime, \SplObjectStorage $exceptions, \DateInterval $elapsed)
+    function let(\SplObjectStorage $exceptions)
     {
-        $startTime->diff($endTime)->willReturn($elapsed);
+        $startTime = new \DateTime('2018-02-10T00:00:00+00:00');
+        $endTime = new \DateTime('2018-02-11T00:00:00+00:00');
         $exceptions->count()->willReturn(4);
         $this->beConstructedWith('name', $startTime, $endTime, 10, $exceptions);
     }
@@ -24,19 +25,19 @@ class ResultSpec extends ObjectBehavior
         $this->getName()->shouldReturn('name');
     }
 
-    function it_has_a_start_time(\DateTime $startTime)
+    function it_has_a_start_time()
     {
-        $this->getStartTime()->shouldReturn($startTime);
+        $this->getStartTime()->shouldBeLike(new \DateTime('2018-02-10T00:00:00+00:00'));
     }
 
-    function it_has_a_end_time(\DateTime $endTime)
+    function it_has_a_end_time()
     {
-        $this->getEndTime()->shouldReturn($endTime);
+        $this->getEndTime()->shouldBeLike(new \DateTime('2018-02-11T00:00:00+00:00'));
     }
 
-    function it_has_an_elapsed_time(\DateInterval $elapsed)
+    function it_has_an_elapsed_time()
     {
-        $this->getElapsed()->shouldReturn($elapsed);
+        $this->getElapsed()->shouldBeLike(new \DateInterval('P1D'));
     }
 
     function it_has_an_error_count()
