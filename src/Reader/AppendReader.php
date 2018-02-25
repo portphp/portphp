@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Port\Reader;
 
 use Port\Reader;
@@ -9,18 +11,38 @@ use Port\Reader;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class AppendReader extends \AppendIterator implements Reader
+final class AppendReader implements Reader, CountableReader
 {
+    private $readers = [];
+
     /**
      * @param Reader[] $readers
      */
     public function __construct(array $readers = [])
     {
-        parent::__construct();
-
         foreach ($readers as $reader) {
             $this->addReader($reader);
         }
+    }
+
+    public function getItems(): \Generator
+    {
+        foreach ($this->readers as $reader) {
+            yield from $reader->getItems();
+        }
+    }
+
+    public function count()
+    {
+        $cnt = 0;
+
+        foreach ($this->readers as $reader) {
+            foreach ($reader->getItems() as $_) {
+                $cnt++;
+            }
+        }
+
+        return $cnt;
     }
 
     /**
@@ -30,22 +52,6 @@ final class AppendReader extends \AppendIterator implements Reader
      */
     public function addReader(Reader $reader)
     {
-        parent::append($reader);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function append(\Iterator $iterator)
-    {
-        $this->addReader($iterator);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getFields()
-    {
-        return [];
+        $this->readers[] = $reader;
     }
 }
