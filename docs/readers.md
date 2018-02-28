@@ -179,7 +179,7 @@ An adapter for the [PHPExcel library](http://phpexcel.codeplex.com/).
 Then use the reader to open an Excel file:
 
 ```php
-use Port\Reader\Excel\ExcelReader;
+use Port\Excel\ExcelReader;
 
 $file = new \SplFileObject('path/to/ecxel_file.xls');
 $reader = new ExcelReader($file);
