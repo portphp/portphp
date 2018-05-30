@@ -84,7 +84,7 @@ abstract class AbstractStreamWriter implements Writer
      *
      * @param boolean $closeStreamOnFinish
      *
-     * @return boolean
+     * @return $this
      */
     public function setCloseStreamOnFinish($closeStreamOnFinish = true)
     {
