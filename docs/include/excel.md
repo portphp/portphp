@@ -1,5 +1,5 @@
-Install the [Excel adapter](https://github.com/portphp/excel):
+Install the [Spreadsheet adapter](https://github.com/portphp/spreadsheet):
 
 ```bash
-$ composer require portphp/excel
+$ composer require portphp/spreadsheet
 ```
