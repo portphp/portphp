@@ -117,6 +117,46 @@ existing sheet:
 $writer = new ExcelWriter($file, 'Old sheet');
 ```
 
+## SpreadsheetWriter
+
+Writes data to an Excel file. 
+
+{!include/spreadsheet.md!}
+
+Then construct an SpreadsheetWriter:
+
+```php
+use Port\Spreadsheet\SpreadsheetWriter;
+
+$file = new \SplFileObject('data.xlsx', 'w');
+$writer = new SpreadsheetWriter($file);
+
+$writer->prepare();
+$writer->writeItem(['first', 'last']);
+$writer->writeItem(['first' => 'James', 'last' => 'Bond']);
+$writer->finish();
+```
+
+You can specify the name of the sheet to write to:
+
+```php
+$writer = new SpreadsheetWriter($file, 'My sheet');
+```
+
+You can open an already existing file and add a sheet to it:
+
+```php
+$file = new \SplFileObject('data.xlsx', 'a');   // Open file with append mode
+$writer = new SpreadsheetWriter($file, 'New sheet');
+```
+
+If you wish to overwrite an existing sheet instead, specify the name of the
+existing sheet:
+
+```php
+$writer = new SpreadsheetWriter($file, 'Old sheet');
+```
+
 ## PdoWriter
 
 Use the PDO writer for importing data into a relational database (such as
