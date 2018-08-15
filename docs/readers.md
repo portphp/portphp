@@ -172,9 +172,37 @@ $reader = new DoctrineReader($objectManager, 'YourNamespace:Employee');
 
 ## Excel
 
-An adapter for the [PHPSpreadsheet library](https://phpspreadsheet.readthedocs.io/). 
+An adapter for the [PHPExcel library](http://phpexcel.codeplex.com/). 
 
 {!include/excel.md!}
+
+Then use the reader to open an Excel file:
+
+```php
+use Port\Excel\ExcelReader;
+
+$file = new \SplFileObject('path/to/ecxel_file.xls');
+$reader = new ExcelReader($file);
+```
+
+To set the row number that headers will be read from, pass a number as the second
+argument.
+
+```php
+$reader = new ExcelReader($file, 2);
+```
+
+To read the specific sheet:
+
+```php
+$reader = new ExcelReader($file, null, 3);
+```
+
+## Spreadsheet
+
+An adapter for the [PHPSpreadsheet library](https://phpspreadsheet.readthedocs.io/). 
+
+{!include/spreadsheet.md!}
 
 Then use the reader to open an Excel file:
 

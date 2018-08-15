@@ -77,11 +77,51 @@ the import file named 'Category' with an id, the writer will use metadata to get
 reference so that it can be associated properly. The DoctrineWriter will skip any association fields that are already
 objects in cases where a converter was used to retrieve the association.
 
-## SpreadsheetWriter
+## ExcelWriter
 
 Writes data to an Excel file. 
 
 {!include/excel.md!}
+
+Then construct an ExcelWriter:
+
+```php
+use Port\Excel\ExcelWriter;
+
+$file = new \SplFileObject('data.xlsx', 'w');
+$writer = new ExcelWriter($file);
+
+$writer->prepare();
+$writer->writeItem(['first', 'last']);
+$writer->writeItem(['first' => 'James', 'last' => 'Bond']);
+$writer->finish();
+```
+
+You can specify the name of the sheet to write to:
+
+```php
+$writer = new ExcelWriter($file, 'My sheet');
+```
+
+You can open an already existing file and add a sheet to it:
+
+```php
+$file = new \SplFileObject('data.xlsx', 'a');   // Open file with append mode
+$writer = new ExcelWriter($file, 'New sheet');
+```
+
+If you wish to overwrite an existing sheet instead, specify the name of the
+existing sheet:
+
+```php
+$writer = new ExcelWriter($file, 'Old sheet');
+```
+
+## SpreadsheetWriter
+
+Writes data to an Excel file. 
+
+{!include/spreadsheet.md!}
 
 Then construct an SpreadsheetWriter:
 
