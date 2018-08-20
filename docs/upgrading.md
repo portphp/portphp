@@ -32,6 +32,9 @@ Readers
 * For Excel reading, you now need the Excel package: 
   `$ composer require portphp/excel`. See the [docs](https://portphp.readthedocs.io) 
   for more information.
+* For Spreadsheet reading, you now need the Spreadsheet package: 
+  `$ composer require portphp/spreadsheet`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.
   
 Writers
 -------
@@ -41,6 +44,9 @@ Writers
   for more information.
 * For Excel writing, you now need the Excel package: 
   `$ composer require portphp/excel`. See the [docs](https://portphp.readthedocs.io) 
+  for more information.
+* For Spreadsheet writing, you now need the Spreadsheet package: 
+  `$ composer require portphp/spreadsheet`. See the [docs](https://portphp.readthedocs.io) 
   for more information.
 
 Converters

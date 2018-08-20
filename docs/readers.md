@@ -198,6 +198,34 @@ To read the specific sheet:
 $reader = new ExcelReader($file, null, 3);
 ```
 
+## Spreadsheet
+
+An adapter for the [PHPSpreadsheet library](https://phpspreadsheet.readthedocs.io/). 
+
+{!include/spreadsheet.md!}
+
+Then use the reader to open an Excel file:
+
+```php
+use Port\Spreadsheet\SpreadsheetReader;
+
+$file = new \SplFileObject('path/to/ecxel_file.xls');
+$reader = new SpreadsheetReader($file);
+```
+
+To set the row number that headers will be read from, pass a number as the second
+argument.
+
+```php
+$reader = new SpreadsheetReader($file, 2);
+```
+
+To read the specific sheet:
+
+```php
+$reader = new SpreadsheetReader($file, null, 3);
+```
+
 ## OneToManyReader
 
 Allows for merging of two data sources (using existing readers), for example 
