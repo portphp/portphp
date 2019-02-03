@@ -138,7 +138,7 @@ $workflow = new StepAggregator($reader);
 
 // Add the writer to the workflow
 $file = new \SplFileObject('output.csv', 'w');
-$writer = new CsvWriter($file);
+$writer = new CsvWriter(';', '"', $file);
 $workflow->addWriter($writer);
 
 // As you can see in the input data, the first names are not capitalized
