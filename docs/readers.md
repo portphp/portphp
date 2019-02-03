@@ -168,6 +168,8 @@ Then use the reader:
 use Port\Doctrine\DoctrineReader;
 
 $reader = new DoctrineReader($objectManager, 'YourNamespace:Employee');
+// or
+$reader = new DoctrineReader($objectManager, YourNamespace\Model\ModelName::class);
 ```
 
 ## Excel
