@@ -167,7 +167,7 @@ Then use the reader:
 ```php
 use Port\Doctrine\DoctrineReader;
 
-$reader = new DoctrineReader($objectManager, 'YourNamespace:Employee');
+$reader = new DoctrineReader($objectManager, Employee::class);
 ```
 
 ## Excel
