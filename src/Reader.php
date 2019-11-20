@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Port;
 
 /**
@@ -7,6 +9,7 @@ namespace Port;
  *
  * @author David de Boer <david@ddeboer.nl>
  */
-interface Reader extends \Iterator
+interface Reader
 {
+    public function getItems(): \Generator;
 }
