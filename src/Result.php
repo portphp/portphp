@@ -133,7 +133,7 @@ class Result
      */
     public function hasErrors()
     {
-        return $this->errorCount > 0;
+        return count($this->exceptions) > 0;
     }
 
     /**
