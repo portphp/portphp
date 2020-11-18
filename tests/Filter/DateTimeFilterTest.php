@@ -7,7 +7,7 @@ use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeFilterTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->items = array(
             'a' => array('updated_at' => '-3 day'),

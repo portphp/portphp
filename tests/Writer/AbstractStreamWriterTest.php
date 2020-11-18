@@ -4,7 +4,7 @@ namespace Port\Tests\Writer;
 
 class AbstractStreamWriterTest extends StreamWriterTest
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = $this->getMockForAbstractClass('Port\\Writer\\AbstractStreamWriter');
     }
