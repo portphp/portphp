@@ -2,7 +2,7 @@
 
 namespace Port;
 
-use Port\Exception\ExceptionInterface;
+use Port\Exception;
 
 /**
  * Simple Container for Workflow Results

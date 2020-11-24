@@ -34,8 +34,9 @@
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^9.4",
-        "phpspec/phpspec": "^7.0"
+        "phpunit/phpunit": "^8.0",
+        "phpspec/phpspec": "^7.0",
+        "friends-of-phpspec/phpspec-code-coverage": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -44,7 +45,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Port\\Tests\\": "tests/"
+            "Port\\Tests\\": "tests/",
+            "spec\\Port\\": "spec/"
         }
     },
     "extra": {

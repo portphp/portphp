@@ -2,4 +2,9 @@ suites:
   library_suite:
     namespace: Port
     psr4_prefix: Port
+extensions:
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 formatter.name: pretty
+code_coverage:
+  format: clover
+  output: build/phpspec.coverage.xml
