@@ -4,18 +4,15 @@ namespace Port\Tests\ValueConverter;
 
 use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\ArrayValueConverterMap;
-use Port\ValueConverter\CallbackValueConverter;
 
 /**
  * @author Christoph Rosse <christoph@rosse.at>
  */
 class ArrayValueConverterMapTest extends TestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testConvertWithNoArrayArgument()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $converter = new ArrayValueConverterMap(array('foo' => function($input) {return $input;}));
         call_user_func($converter, 'foo');
     }

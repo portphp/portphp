@@ -46,7 +46,7 @@ class DateTimeValueConverterTest extends TestCase
     {
         $value = '14/10/2008 09:40:20';
         $converter = new DateTimeValueConverter('d-m-y', 'd-M-Y');
-        $this->expectException("UnexpectedValueException", "14/10/2008 09:40:20 is not a valid date/time according to format d-m-y");
+        $this->expectException(\UnexpectedValueException::class, "14/10/2008 09:40:20 is not a valid date/time according to format d-m-y");
         call_user_func($converter, $value);
     }
 

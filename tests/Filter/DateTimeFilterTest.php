@@ -1,8 +1,9 @@
 <?php
 
-namespace Port\Filter;
+namespace Port\Tests\Filter;
 
 use PHPUnit\Framework\TestCase;
+use Port\Filter\DateTimeThresholdFilter;
 use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeFilterTest extends TestCase
@@ -24,12 +25,10 @@ class DateTimeFilterTest extends TestCase
         return array_filter($items, array($filter, '__invoke'));
     }
 
-    /**
-     * @expectedException \LogicException
-     * @expectedExceptionMessage Make sure you set a threshold
-     */
     public function testDefaultFilter()
     {
+        $this->expectExceptionMessage("Make sure you set a threshold");
+        $this->expectException(\LogicException::class);
         $this->applyFilter(
             new DateTimeThresholdFilter(new DateTimeValueConverter()),
             $this->items

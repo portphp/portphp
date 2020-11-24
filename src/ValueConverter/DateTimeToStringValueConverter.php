@@ -2,6 +2,7 @@
 
 namespace Port\ValueConverter;
 
+use DateTime;
 use Port\Exception\UnexpectedValueException;
 
 /**
@@ -30,16 +31,16 @@ class DateTimeToStringValueConverter
      * using specified format
      *
      * @param mixed $input
-     * @return \DateTime|string
+     * @return DateTime|string|null
      * @throws UnexpectedValueException
      */
     public function __invoke($input)
     {
         if (!$input) {
-            return;
+            return null;
         }
 
-        if (!($input instanceof \DateTime)) {
+        if (!($input instanceof DateTime)) {
             throw new UnexpectedValueException('Input must be DateTime object.');
         }
 

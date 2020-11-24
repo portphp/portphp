@@ -22,7 +22,7 @@ class AbstractStreamWriterTest extends StreamWriterTest
                 $this->writer->setStream($invalidStream);
                 $this->fail('Above call should throw exception');
             } catch (\InvalidArgumentException $exception) {
-                $this->assertContains('Expects argument to be a stream resource', $exception->getMessage());
+                $this->assertStringContainsString('Expects argument to be a stream resource', $exception->getMessage());
             }
         }
     }

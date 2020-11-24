@@ -1,8 +1,9 @@
 <?php
 
-namespace Port\Filter;
+namespace Port\Tests\Filter;
 
 use PHPUnit\Framework\TestCase;
+use Port\Filter\OffsetFilter;
 
 /**
  * @author Ville Mattila <ville@eventio.fi>

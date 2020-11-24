@@ -15,12 +15,10 @@ class DateTimeToStringValueConverterTest extends TestCase
         $this->assertEquals('2010-01-01 01:00:00', $output);
     }
 
-    /**
-     * @expectedException \Port\Exception\UnexpectedValueException
-     * @expectedExceptionMessage Input must be DateTime object
-     */
     public function testInvalidInputFormatThrowsException()
     {
+        $this->expectExceptionMessage("Input must be DateTime object");
+        $this->expectException(\Port\Exception\UnexpectedValueException::class);
         $value = '14/10/2008 09:40:20';
         $converter = new DateTimeToStringValueConverter;
         call_user_func($converter, $value);

@@ -3,6 +3,7 @@
 namespace Port\Tests\ValueConverter;
 
 use PHPUnit\Framework\TestCase;
+use Port\Exception\UnexpectedValueException;
 use Port\ValueConverter\ObjectConverter;
 
 /**
@@ -35,20 +36,16 @@ class ObjectConverterTest extends TestCase
         $this->assertEquals('bar', call_user_func($converter, $object));
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testConvertAObjectWithoutToString()
     {
+        $this->expectException(\RuntimeException::class);
         $converter = new ObjectConverter;
         call_user_func($converter, new Dummy());
     }
 
-    /**
-     * @expectedException Port\Exception\UnexpectedTypeException
-     */
     public function testConvetANonObject()
     {
+        $this->expectException(UnexpectedValueException::class);
         $converter = new ObjectConverter();
         call_user_func($converter, 'foo');
     }

@@ -27,16 +27,16 @@
         "php": ">=7.1",
         "psr/log": "^1.1",
         "symfony/property-access": "^5.1",
-        "symfony/validator": "^5.1"
+        "symfony/validator": "^5.1",
+        "doctrine/instantiator": "^1.4",
+        "doctrine/common": "^3.0"
     },
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
         "phpunit/phpunit": "^9.4",
-        "phpspec/phpspec": "^7.0",
-        "doctrine/instantiator": "^1.0.5",
-        "doctrine/common": "^2.7"
-    },    
+        "phpspec/phpspec": "^7.0"
+    },
     "autoload": {
         "psr-4": {
             "Port\\": "src/"
@@ -46,7 +46,7 @@
         "psr-4": {
             "Port\\Tests\\": "tests/"
         }
-    },    
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "2.0.x-dev"
