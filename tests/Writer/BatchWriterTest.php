@@ -3,7 +3,7 @@
 namespace Port\Tests\Writer;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject as Mock;
+use PHPUnit\Framework\MockObject\MockObject as Mock;
 use Port\Writer;
 use Port\Writer\BatchWriter;
 
