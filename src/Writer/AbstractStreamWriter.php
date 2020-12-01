@@ -2,6 +2,7 @@
 
 namespace Port\Writer;
 
+use InvalidArgumentException;
 use Port\Writer;
 
 /**
@@ -38,14 +39,14 @@ abstract class AbstractStreamWriter implements Writer
      *
      * @param resource $stream
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      *
      * @return $this
      */
     public function setStream($stream)
     {
         if (! is_resource($stream) || ! 'stream' == get_resource_type($stream)) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Expects argument to be a stream resource, got %s',
                 is_resource($stream) ? get_resource_type($stream) : gettype($stream)
             ));

@@ -3,6 +3,7 @@
 namespace Port\Reader;
 
 use Port\Reader;
+use SplFileObject;
 
 /**
  * Factory interface to create file based readers
@@ -12,9 +13,9 @@ use Port\Reader;
 interface ReaderFactory
 {
     /**
-     * @param \SplFileObject $file
+     * @param SplFileObject $file
      *
      * @return Reader
      */
-    public function getReader(\SplFileObject $file);
+    public function getReader(SplFileObject $file);
 }

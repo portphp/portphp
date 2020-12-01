@@ -2,7 +2,10 @@
 
 namespace Port;
 
+use DateInterval;
+use DateTime;
 use Port\Exception;
+use SplObjectStorage;
 
 /**
  * Simple Container for Workflow Results
@@ -19,17 +22,17 @@ class Result
     protected $name;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     protected $startTime;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     protected $endTime;
 
     /**
-     * @var \DateInterval
+     * @var DateInterval
      */
     protected $elapsed;
 
@@ -49,18 +52,18 @@ class Result
     protected $totalProcessedCount = 0;
 
     /**
-     * @var \SplObjectStorage
+     * @var SplObjectStorage
      */
     protected $exceptions;
 
     /**
      * @param string            $name
-     * @param \DateTime         $startTime
-     * @param \DateTime         $endTime
+     * @param DateTime         $startTime
+     * @param DateTime         $endTime
      * @param integer           $totalCount
-     * @param \SplObjectStorage $exceptions
+     * @param SplObjectStorage $exceptions
      */
-    public function __construct($name, \DateTime $startTime, \DateTime $endTime, $totalCount, \SplObjectStorage $exceptions)
+    public function __construct($name, DateTime $startTime, DateTime $endTime, $totalCount, SplObjectStorage $exceptions)
     {
         $this->name                = $name;
         $this->startTime           = $startTime;
@@ -81,7 +84,7 @@ class Result
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getStartTime()
     {
@@ -89,7 +92,7 @@ class Result
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getEndTime()
     {
@@ -97,7 +100,7 @@ class Result
     }
 
     /**
-     * @return \DateInterval
+     * @return DateInterval
      */
     public function getElapsed()
     {
@@ -137,7 +140,7 @@ class Result
     }
 
     /**
-     * @return \SplObjectStorage
+     * @return SplObjectStorage
      */
     public function getExceptions()
     {

@@ -2,6 +2,7 @@
 
 namespace Port\Reader;
 
+use IteratorIterator;
 use Port\Reader;
 
 /**
@@ -9,6 +10,6 @@ use Port\Reader;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class IteratorReader extends \IteratorIterator implements Reader
+class IteratorReader extends IteratorIterator implements Reader
 {
 }

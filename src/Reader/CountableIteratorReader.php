@@ -2,6 +2,8 @@
 
 namespace Port\Reader;
 
+use Countable;
+
 /**
  * Use a class implementing both \Iterator and \Countable as a reader
  *
@@ -22,7 +24,7 @@ class CountableIteratorReader extends IteratorReader implements CountableReader
     {
         $iterator = $this->getInnerIterator();
 
-        if ($iterator instanceof \Countable) {
+        if ($iterator instanceof Countable) {
             return count($iterator);
         }
 

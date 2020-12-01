@@ -2,6 +2,7 @@
 
 namespace spec\Port\Filter;
 
+use DateTime;
 use Port\ValueConverter\DateTimeValueConverter;
 use PhpSpec\ObjectBehavior;
 
@@ -22,7 +23,7 @@ class DateTimeThresholdFilterSpec extends ObjectBehavior
         $this->shouldThrow('LogicException')->during__invoke([]);
     }
 
-    function it_accepts_a_threshold(\DateTime $dateTime)
+    function it_accepts_a_threshold(DateTime $dateTime)
     {
         $this->setThreshold($dateTime);
     }
@@ -33,8 +34,8 @@ class DateTimeThresholdFilterSpec extends ObjectBehavior
             'updated_at' => '1970-01-01'
         ];
 
-        $valueConverter->__invoke('1970-01-01')->willReturn(new \DateTime('1970-01-01'));
-        $this->beConstructedWith($valueConverter, new \DateTime());
+        $valueConverter->__invoke('1970-01-01')->willReturn(new DateTime('1970-01-01'));
+        $this->beConstructedWith($valueConverter, new DateTime());
 
         $this->__invoke($item)->shouldReturn(false);
     }

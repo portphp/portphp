@@ -2,6 +2,8 @@
 
 namespace Port\Tests\Filter;
 
+use DateTime;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use Port\Filter\DateTimeThresholdFilter;
 use Port\ValueConverter\DateTimeValueConverter;
@@ -28,7 +30,7 @@ class DateTimeFilterTest extends TestCase
     public function testDefaultFilter()
     {
         $this->expectExceptionMessage("Make sure you set a threshold");
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $this->applyFilter(
             new DateTimeThresholdFilter(new DateTimeValueConverter()),
             $this->items
@@ -39,7 +41,7 @@ class DateTimeFilterTest extends TestCase
     {
         $resultItems = $this->applyFilter(new DateTimeThresholdFilter(
             new DateTimeValueConverter(),
-            new \DateTime('today')
+            new DateTime('today')
         ), $this->items);
         $this->assertEquals(
             array('d', 'e', 'f'),
@@ -50,7 +52,7 @@ class DateTimeFilterTest extends TestCase
     public function testSetter()
     {
         $filter = new DateTimeThresholdFilter(new DateTimeValueConverter());
-        $filter->setThreshold(new \DateTime('today'));
+        $filter->setThreshold(new DateTime('today'));
         $resultItems = $this->applyFilter($filter, $this->items);
 
 

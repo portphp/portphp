@@ -2,6 +2,8 @@
 
 namespace Port\Tests\Reader;
 
+use ArrayIterator;
+use EmptyIterator;
 use PHPUnit\Framework\TestCase;
 use Port\Reader\CountableIteratorReader;
 
@@ -12,7 +14,7 @@ class CountableIteratorReaderTest extends TestCase
 {
     public function testCount()
     {
-        $iterator = new \ArrayIterator([
+        $iterator = new ArrayIterator([
             [
                 'id'       => 1,
                 'username' => 'john.doe',
@@ -39,7 +41,7 @@ class CountableIteratorReaderTest extends TestCase
     }
 }
 
-class CountableIterator extends \EmptyIterator
+class CountableIterator extends EmptyIterator
 {
 
 }

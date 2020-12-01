@@ -3,6 +3,8 @@
 namespace Port\Writer;
 
 use Port\Writer;
+use SplDoublyLinkedList;
+use SplQueue;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
@@ -20,7 +22,7 @@ class BatchWriter implements Writer
     private $size;
 
     /**
-     * @var \SplQueue
+     * @var SplQueue
      */
     private $queue;
 
@@ -41,8 +43,8 @@ class BatchWriter implements Writer
     {
         $this->delegate->prepare();
 
-        $this->queue = new \SplQueue();
-        $this->queue->setIteratorMode(\SplDoublyLinkedList::IT_MODE_DELETE);
+        $this->queue = new SplQueue();
+        $this->queue->setIteratorMode(SplDoublyLinkedList::IT_MODE_DELETE);
     }
 
     /**

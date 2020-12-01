@@ -2,6 +2,9 @@
 
 namespace Port\Tests\Writer;
 
+use InvalidArgumentException;
+use stdClass;
+
 class AbstractStreamWriterTest extends StreamWriterTest
 {
     protected function setUp(): void
@@ -16,12 +19,12 @@ class AbstractStreamWriterTest extends StreamWriterTest
 
     public function testItThrowsInvalidArgumentExceptionOnInvalidStream()
     {
-        $invalidStreams = array(0, 1, null, 'stream', new \stdClass());
+        $invalidStreams = array(0, 1, null, 'stream', new stdClass());
         foreach ($invalidStreams as $invalidStream) {
             try {
                 $this->writer->setStream($invalidStream);
                 $this->fail('Above call should throw exception');
-            } catch (\InvalidArgumentException $exception) {
+            } catch (InvalidArgumentException $exception) {
                 $this->assertStringContainsString('Expects argument to be a stream resource', $exception->getMessage());
             }
         }

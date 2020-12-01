@@ -5,6 +5,7 @@ namespace Port\Tests\ValueConverter;
 use Doctrine\Common\Persistence\ObjectRepository;
 use PHPUnit\Framework\TestCase;
 use Port\ValueConverter\StringToObjectConverter;
+use stdClass;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
@@ -20,7 +21,7 @@ class StringToObjectConverterTest extends TestCase
 
         $converter = new StringToObjectConverter($repository, 'name');
 
-        $class = new \stdClass();
+        $class = new stdClass();
 
         $repository->expects($this->once())
             ->method('findOneByName')

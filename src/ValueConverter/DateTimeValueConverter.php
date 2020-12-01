@@ -61,14 +61,14 @@ class DateTimeValueConverter
         }
 
         if ($this->inputFormat) {
-            $date = \DateTime::createFromFormat($this->inputFormat, $input);
+            $date = DateTime::createFromFormat($this->inputFormat, $input);
             if (false === $date) {
                 throw new UnexpectedValueException(
                     $input . ' is not a valid date/time according to format ' . $this->inputFormat
                 );
             }
         } else {
-            $date = new \DateTime($input);
+            $date = new DateTime($input);
         }
 
         if ($this->outputFormat) {

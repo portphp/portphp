@@ -5,6 +5,7 @@ namespace Port\Tests\ValueConverter;
 use PHPUnit\Framework\TestCase;
 use Port\Exception\UnexpectedValueException;
 use Port\ValueConverter\ObjectConverter;
+use RuntimeException;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz
@@ -38,7 +39,7 @@ class ObjectConverterTest extends TestCase
 
     public function testConvertAObjectWithoutToString()
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $converter = new ObjectConverter;
         call_user_func($converter, new Dummy());
     }

@@ -2,6 +2,8 @@
 
 namespace Port\ValueConverter;
 
+use InvalidArgumentException;
+
 /**
  * Converts a nested array using a converter-map
  *
@@ -28,7 +30,7 @@ class ArrayValueConverterMap
     public function __invoke($input)
     {
         if (!is_array($input)) {
-            throw new \InvalidArgumentException('Input of a ArrayValueConverterMap must be an array');
+            throw new InvalidArgumentException('Input of a ArrayValueConverterMap must be an array');
         }
 
         foreach ($input as $key => $item) {

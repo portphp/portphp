@@ -3,6 +3,7 @@
 namespace Port\Tests\ValueConverter;
 
 use PHPUnit\Framework\TestCase;
+use Port\Exception\UnexpectedValueException;
 use Port\ValueConverter\MappingValueConverter;
 
 class MappingValueConverterTest extends TestCase
@@ -20,7 +21,7 @@ class MappingValueConverterTest extends TestCase
 
     public function testExceptionIsThrownWhenValueIsNotFound()
     {
-        $this->expectException(\Port\Exception\UnexpectedValueException::class);
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage("Cannot find mapping for value \"unexpected value\"");
         $converter = new MappingValueConverter([]);
 
