@@ -34,7 +34,7 @@
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^8.0",
+        "phpunit/phpunit": "^9.0",
         "phpspec/phpspec": "^7.0",
         "friends-of-phpspec/phpspec-code-coverage": "^5.0"
     },
