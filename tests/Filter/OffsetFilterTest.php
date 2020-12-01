@@ -33,20 +33,20 @@ class OffsetFilterTest extends TestCase
     {
         $items = array('first','second','third','fourth');
         $resultItems = $this->applyFilter(new OffsetFilter(1), $items);
-        $this->assertEquals($resultItems, array('second','third','fourth'));
+        $this->assertEquals(array('second','third','fourth'), $resultItems);
     }
 
     public function testMaxCount()
     {
         $items = array('first','second','third','fourth');
         $resultItems = $this->applyFilter(new OffsetFilter(0, 2), $items);
-        $this->assertEquals($resultItems, array('first','second'));
+        $this->assertEquals(array('first','second'), $resultItems);
     }
 
     public function testOffsetWithMaxCount()
     {
         $items = array('first','second','third','fourth');
         $resultItems = $this->applyFilter(new OffsetFilter(1, 1), $items);
-        $this->assertEquals($resultItems, array('second'));
+        $this->assertEquals(array('second'), $resultItems);
     }
 }
