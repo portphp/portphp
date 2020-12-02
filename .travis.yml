@@ -17,6 +17,7 @@ matrix:
         - COMPOSER_FLAGS="--prefer-lowest --prefer-stable"
         - COVERAGE=true
         - PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
+        - XDEBUG_MODE="coverage"
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-source --no-interaction
