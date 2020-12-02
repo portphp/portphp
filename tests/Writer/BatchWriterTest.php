@@ -3,7 +3,7 @@
 namespace Port\Tests\Writer;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject as Mock;
+use PHPUnit\Framework\MockObject\MockObject as Mock;
 use Port\Writer;
 use Port\Writer\BatchWriter;
 
@@ -14,7 +14,7 @@ class BatchWriterTest extends TestCase
      */
     private $delegate;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->delegate = $this->createMock('Port\Writer');
     }

@@ -1,7 +1,14 @@
 {
     "name": "portphp/portphp",
     "description": "Data import/export workflow",
-    "keywords": [ "data", "import", "export", "csv", "excel", "doctrine" ],
+    "keywords": [
+        "data",
+        "import",
+        "export",
+        "csv",
+        "excel",
+        "doctrine"
+    ],
     "license": "MIT",
     "homepage": "https://github.com/portphp",
     "authors": [
@@ -24,24 +31,29 @@
         "docs": "https://portphp.readthedocs.org"
     },
     "require": {
-        "php": ">=5.6.0",
-        "psr/log": "~1.0",
-        "symfony/property-access": "^2.8 || ^3.0 || ^4.0 || ^5.0",
-        "symfony/validator": "^2.8 || ^3.0 || ^4.0 || ^5.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Port\\": "src/",
-            "Port\\Tests\\": "tests/"
-        }
+        "php": ">=7.3",
+        "psr/log": "^1.1",
+        "symfony/property-access": "^3.0 || ^4.0 || ^5.0",
+        "symfony/validator": "^3.0 || ^4.0 || ^5.0",
+        "doctrine/orm": "^2.6"
     },
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^5.7 || ^6.0",
-        "phpspec/phpspec": "^3.0 || ^4.0",
-        "doctrine/instantiator": "^1.0.5",
-        "doctrine/common": "^2.7"
+        "phpunit/phpunit": "^9.2.0",
+        "phpspec/phpspec": "^7.0",
+        "friends-of-phpspec/phpspec-code-coverage": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Port\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Port\\Tests\\": "tests/",
+            "spec\\Port\\": "spec/"
+        }
     },
     "extra": {
         "branch-alias": {

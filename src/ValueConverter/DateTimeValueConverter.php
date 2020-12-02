@@ -2,7 +2,9 @@
 
 namespace Port\ValueConverter;
 
+use Exception;
 use \Port\Exception\UnexpectedValueException;
+use DateTime;
 
 /**
  * Convert an date string into another date string
@@ -32,8 +34,8 @@ class DateTimeValueConverter
     protected $outputFormat;
 
     /**
-     * @param string $inputFormat
-     * @param string $outputFormat
+     * @param null $inputFormat
+     * @param null $outputFormat
      */
     public function __construct($inputFormat = null, $outputFormat = null)
     {
@@ -49,24 +51,24 @@ class DateTimeValueConverter
      * the \DateTime instance
      *
      * @param mixed $input
-     * @return \DateTime|string
-     * @throws UnexpectedValueException
+     * @return DateTime|string|null
+     * @throws UnexpectedValueException|Exception
      */
     public function __invoke($input)
     {
         if (!$input) {
-            return;
+            return null;
         }
 
         if ($this->inputFormat) {
-            $date = \DateTime::createFromFormat($this->inputFormat, $input);
+            $date = DateTime::createFromFormat($this->inputFormat, $input);
             if (false === $date) {
                 throw new UnexpectedValueException(
                     $input . ' is not a valid date/time according to format ' . $this->inputFormat
                 );
             }
         } else {
-            $date = new \DateTime($input);
+            $date = new DateTime($input);
         }
 
         if ($this->outputFormat) {

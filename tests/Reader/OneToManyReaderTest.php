@@ -3,6 +3,7 @@
 namespace Port\Tests\Reader;
 
 use PHPUnit\Framework\TestCase;
+use Port\Exception\ReaderException;
 use Port\Reader\ArrayReader;
 use Port\Reader\OneToManyReader;
 
@@ -164,7 +165,8 @@ class OneToManyReaderTest extends TestCase
         $rightReader  = new ArrayReader($rightData);
         $oneToManyReader  = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->expectException('Port\Exception\ReaderException', 'Left Row: "0" Reader already contains a field named "items". Please choose a different nest key field');
+        $this->expectException(ReaderException::class);
+        $this->expectExceptionMessage('Left Row: "0" Reader already contains a field named "items". Please choose a different nest key field');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();
@@ -188,7 +190,8 @@ class OneToManyReaderTest extends TestCase
         $rightReader = new ArrayReader($rightData);
         $oneToManyReader = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->expectException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
+        $this->expectException(ReaderException::class);
+        $this->expectExceptionMessage('Row: "0" has no field named "OrderId"');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();
@@ -213,7 +216,8 @@ class OneToManyReaderTest extends TestCase
         $rightReader = new ArrayReader($rightData);
         $oneToManyReader = new OneToManyReader($leftReader, $rightReader, 'items', 'OrderId');
 
-        $this->expectException('Port\Exception\ReaderException', 'Row: "0" has no field named "OrderId"');
+        $this->expectException(ReaderException::class);
+        $this->expectExceptionMessage('Row: "0" has no field named "OrderId"');
 
         $oneToManyReader->rewind();
         $oneToManyReader->current();

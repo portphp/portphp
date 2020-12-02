@@ -2,6 +2,8 @@
 
 namespace Port\Filter;
 
+use DateTime;
+use LogicException;
 use Port\ValueConverter\DateTimeValueConverter;
 
 /**
@@ -16,7 +18,7 @@ class DateTimeThresholdFilter
     /**
      * Threshold dates strictly before this date will be filtered out
      *
-     * @var \DateTime|null
+     * @var DateTime|null
      */
     protected $threshold;
 
@@ -41,13 +43,13 @@ class DateTimeThresholdFilter
 
     /**
      * @param DateTimeValueConverter $valueConverter
-     * @param \DateTime|null         $threshold
+     * @param DateTime|null         $threshold
      * @param string                 $timeColumnName
      * @param integer                $priority
      */
     public function __construct(
         DateTimeValueConverter $valueConverter,
-        \DateTime $threshold = null,
+        DateTime $threshold = null,
         $timeColumnName = 'updated_at',
         $priority = 512
     ) {
@@ -63,7 +65,7 @@ class DateTimeThresholdFilter
     public function __invoke(array $item)
     {
         if ($this->threshold == null) {
-            throw new \LogicException('Make sure you set a threshold');
+            throw new LogicException('Make sure you set a threshold');
         }
 
         $threshold = call_user_func($this->valueConverter, $item[$this->timeColumnName]);
@@ -75,9 +77,9 @@ class DateTimeThresholdFilter
      * Useful if you build a filter service, and want to set the threshold
      * dynamically afterwards.
      *
-     * @param \DateTime $value
+     * @param DateTime $value
      */
-    public function setThreshold(\DateTime $value)
+    public function setThreshold(DateTime $value)
     {
         $this->threshold = $value;
     }

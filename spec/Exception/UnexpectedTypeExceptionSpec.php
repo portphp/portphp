@@ -3,6 +3,7 @@
 namespace spec\Port\Exception;
 
 use PhpSpec\ObjectBehavior;
+use stdClass;
 
 class UnexpectedTypeExceptionSpec extends ObjectBehavior
 {
@@ -28,7 +29,7 @@ class UnexpectedTypeExceptionSpec extends ObjectBehavior
 
     function it_has_a_message_with_object_type()
     {
-        $this->beConstructedWith(new \stdClass, 'string');
+        $this->beConstructedWith(new stdClass, 'string');
 
         $this->getMessage()->shouldReturn('Expected argument of type "string", "stdClass" given');
     }

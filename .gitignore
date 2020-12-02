@@ -1,6 +1,7 @@
 vendor/
-composer.phar
+build/
 composer.lock
 phpspec.yml
 phpunit.xml
-site/
+.idea
+.phpunit.result.cache

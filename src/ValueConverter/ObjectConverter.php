@@ -3,6 +3,7 @@
 namespace Port\ValueConverter;
 
 use Port\Exception\UnexpectedTypeException;
+use RuntimeException;
 use Symfony\Component\PropertyAccess\PropertyPath;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
@@ -61,7 +62,7 @@ class ObjectConverter
         }
 
         if (null === $this->propertyPath && !method_exists($input, '__toString')) {
-            throw new \RuntimeException;
+            throw new RuntimeException;
         }
 
         if (null === $this->propertyPath) {

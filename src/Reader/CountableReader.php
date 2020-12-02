@@ -2,6 +2,7 @@
 
 namespace Port\Reader;
 
+use Countable;
 use Port\Reader;
 
 /**
@@ -9,7 +10,7 @@ use Port\Reader;
  *
  * @author David de Boer <david@ddeboer.nl>
  */
-interface CountableReader extends Reader, \Countable
+interface CountableReader extends Reader, Countable
 {
     // Don't add count() to interface: see https://github.com/ddeboer/data-import/pull/5
 }

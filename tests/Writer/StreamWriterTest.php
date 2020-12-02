@@ -12,7 +12,7 @@ abstract class StreamWriterTest extends TestCase
     /** @var AbstractStreamWriter */
     protected $writer;
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if (is_resource($this->stream)) {
             fclose($this->stream);
@@ -30,9 +30,9 @@ abstract class StreamWriterTest extends TestCase
     }
 
     /**
-     * @param string               $expected
+     * @param string $expected
      * @param AbstractStreamWriter $actual
-     * @param string               $message
+     * @param string $message
      */
     public static function assertContentsEquals($expected, $actual, $message = '')
     {

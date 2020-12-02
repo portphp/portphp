@@ -2,6 +2,8 @@
 
 namespace Port\Reader;
 
+use AppendIterator;
+use Iterator;
 use Port\Reader;
 
 /**
@@ -9,7 +11,7 @@ use Port\Reader;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class AppendReader extends \AppendIterator implements Reader
+final class AppendReader extends AppendIterator implements Reader
 {
     /**
      * @param Reader[] $readers
@@ -36,7 +38,7 @@ final class AppendReader extends \AppendIterator implements Reader
     /**
      * {@inheritdoc}
      */
-    public function append(\Iterator $iterator)
+    public function append(Iterator $iterator)
     {
         $this->addReader($iterator);
     }
