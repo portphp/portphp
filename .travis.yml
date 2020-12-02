@@ -9,7 +9,7 @@ cache:
 php:
   - 7.3
   - 7.4
-  # - hhvm  
+  # - hhvm
   # - nightly
 
 matrix:
@@ -19,7 +19,7 @@ matrix:
   include:
     - php: 7.3
       env:
-        - COMPOSER_FLAGS="--prefer-lowest --prefer-stable"
+        - COMPOSER_FLAGS=" --prefer-stable"
         - COVERAGE=true
         - PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
 
