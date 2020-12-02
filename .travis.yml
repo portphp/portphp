@@ -22,9 +22,12 @@ matrix:
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-source --no-interaction
 
+before_script:
+  - export XDEBUG_MODE=coverage
+
 script:
   - vendor/bin/phpunit ${PHPUNIT_FLAGS}
-  - vendor/bin/phpspec run
+  - phpdbg -qrr vendor/bin/phpspec run
 
 after_script:
   - if [[ "$COVERAGE" = true ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
