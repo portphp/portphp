@@ -9,19 +9,19 @@ cache:
 php:
   - 7.3
   - 7.4
-  - nightly
+  # - hhvm  
+  # - nightly
 
 matrix:
   allow_failures:
-    - php: hhvm
-    - php: nightly
+    # - php: hhvm
+    # - php: nightly
   include:
     - php: 7.3
       env:
         - COMPOSER_FLAGS="--prefer-lowest --prefer-stable"
         - COVERAGE=true
         - PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
-        - XDEBUG_MODE="coverage"
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-source --no-interaction
