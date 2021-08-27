@@ -31,7 +31,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Port\\": "src/",
+            "Port\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Port\\Tests\\": "tests/"
         }
     },
