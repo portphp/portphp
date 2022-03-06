@@ -2,6 +2,8 @@
 
 namespace Port\Tests\Writer;
 
+use Port\Test\StreamWriterTest;
+
 class AbstractStreamWriterTest extends StreamWriterTest
 {
     protected function setUp(): void
