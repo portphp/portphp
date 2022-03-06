@@ -7,7 +7,7 @@ use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeFilterTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->items = array(
             'a' => array('updated_at' => '-3 day'),
@@ -24,12 +24,10 @@ class DateTimeFilterTest extends TestCase
         return array_filter($items, array($filter, '__invoke'));
     }
 
-    /**
-     * @expectedException \LogicException
-     * @expectedExceptionMessage Make sure you set a threshold
-     */
     public function testDefaultFilter()
     {
+        $this->expectExceptionMessage("Make sure you set a threshold");
+        $this->expectException(\LogicException::class);
         $this->applyFilter(
             new DateTimeThresholdFilter(new DateTimeValueConverter()),
             $this->items

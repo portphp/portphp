@@ -19,7 +19,7 @@ class ValidatorFilterTest extends TestCase
     /** @var Mock|ValidatorInterface */
     private $validator;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->validator = $this->createMock(ValidatorInterface::class);
         $this->filter = new ValidatorFilter($this->validator);

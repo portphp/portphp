@@ -24,7 +24,7 @@
         "docs": "https://portphp.readthedocs.org"
     },
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.4",
         "psr/log": "~1.0",
         "symfony/property-access": "^2.8 || ^3.0 || ^4.0 || ^5.0",
         "symfony/validator": "^2.8 || ^3.0 || ^4.0 || ^5.0"
@@ -42,8 +42,8 @@
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^5.7 || ^6.0",
-        "phpspec/phpspec": "^3.0 || ^4.0",
+        "phpunit/phpunit": "^9.5",
+        "phpspec/phpspec": "7.1.x-dev",
         "doctrine/instantiator": "^1.0.5",
         "doctrine/common": "^2.7"
     },

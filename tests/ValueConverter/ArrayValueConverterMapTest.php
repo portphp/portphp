@@ -11,12 +11,10 @@ use Port\ValueConverter\CallbackValueConverter;
  */
 class ArrayValueConverterMapTest extends TestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testConvertWithNoArrayArgument()
     {
-        $converter = new ArrayValueConverterMap(array('foo' => function($input) {return $input;}));
+        $this->expectException(\InvalidArgumentException::class);
+        $converter = new ArrayValueConverterMap(['foo' => function($input) {return $input;}]);
         call_user_func($converter, 'foo');
     }
 

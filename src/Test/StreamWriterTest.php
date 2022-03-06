@@ -12,7 +12,7 @@ abstract class StreamWriterTest extends TestCase
     /** @var AbstractStreamWriter */
     protected $writer;
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if (is_resource($this->stream)) {
             fclose($this->stream);

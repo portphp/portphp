@@ -74,7 +74,7 @@ class OneToManyReader implements CountableReader
      *
      * @throws ReaderException
      */
-    public function current()
+    public function current(): array
     {
         $leftRow = $this->leftReader->current();
 
@@ -131,44 +131,29 @@ class OneToManyReader implements CountableReader
         return $row[$idField];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function next()
+    public function next(): void
     {
         $this->leftReader->next();
         //right reader is iterated in current() method.
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function key()
+    public function key(): string
     {
         return $this->leftReader->key();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function valid()
+    public function valid(): bool
     {
         return $this->leftReader->valid() && $this->rightReader->valid();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rewind()
+    public function rewind(): void
     {
         $this->leftReader->rewind();
         $this->rightReader->rewind();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function count()
+    public function count(): int
     {
         return $this->leftReader->count();
     }
