@@ -1,6 +1,6 @@
 <?php
 
-namespace Port\Tests\Writer;
+namespace Port\Test;
 
 use PHPUnit\Framework\TestCase;
 use Port\Writer\AbstractStreamWriter;
