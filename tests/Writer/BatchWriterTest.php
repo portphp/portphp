@@ -14,7 +14,7 @@ class BatchWriterTest extends TestCase
      */
     private $delegate;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->delegate = $this->createMock('Port\Writer');
     }

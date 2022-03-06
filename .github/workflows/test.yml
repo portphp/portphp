@@ -1,0 +1,57 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        php-versions: [ '7.4', '8.0', '8.1' ]
+        include:
+          - php-versions: '7.4'
+            coverage: pcov
+            composer-prefer: '--prefer-lowest --prefer-stable'
+            phpunit-flags: '--coverage-clover coverage.xml'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: ${{ matrix.coverage }}
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ matrix.composer-prefer }}$-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-${{ matrix.composer-prefer }}-
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-progress --ignore-platform-req="ext-*" ${{ matrix.composer-prefer }}
+
+      - name: Run test suite
+        run: vendor/bin/phpunit ${{ matrix.phpunit-flags }}
+
+      - name: Run phpspec
+        run: vendor/bin/phpspec run
+        continue-on-error: true
+
+      - name: Upload coverage
+        if: matrix.coverage
+        run: |
+          wget https://scrutinizer-ci.com/ocular.phar
+          php ocular.phar code-coverage:upload --format=php-clover coverage.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}
