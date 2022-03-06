@@ -10,8 +10,8 @@ class DuplicateHeadersException extends ReaderException
     /**
      * @param array $duplicates
      */
-    public function __construct(array $duplicates)
+    public function __construct($duplicates)
     {
-        parent::__construct(sprintf('File contains duplicate headers: %s', implode($duplicates, ', ')));
+        parent::__construct(sprintf('File contains duplicate headers: %s', implode(', ', $duplicates)));
     }
 }
