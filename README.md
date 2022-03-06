@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/portphp/portphp.svg)](https://travis-ci.org/portphp/portphp)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/portphp/portphp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/portphp/portphp/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/portphp/portphp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/portphp/portphp/?branch=master)
-[![Slack Status](http://slack.portphp.org/badge.svg)](http://slack.portphp.org)
 
 Port is a data import/export workflow for PHP.
 
