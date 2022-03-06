@@ -9,7 +9,7 @@ class StreamMergeWriterTest extends AbstractStreamWriterTest
     /** @var StreamMergeWriter */
     protected $writer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

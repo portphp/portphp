@@ -18,12 +18,10 @@ class MappingValueConverterTest extends TestCase
         $this->assertNull(call_user_func($converter, 'foo'));
     }
 
-    /**
-     * @expectedException \Port\Exception\UnexpectedValueException
-     * @expectedExceptionMessage Cannot find mapping for value "unexpected value"
-     */
     public function testExceptionIsThrownWhenValueIsNotFound()
     {
+        $this->expectExceptionMessage("Cannot find mapping for value \"unexpected value\"");
+        $this->expectException(\Port\Exception\UnexpectedValueException::class);
         $converter = new MappingValueConverter([]);
 
         call_user_func($converter, 'unexpected value');

@@ -33,18 +33,12 @@ final class AppendReader extends \AppendIterator implements Reader
         parent::append($reader);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function append(\Iterator $iterator)
+    public function append(\Iterator $iterator):  void
     {
         $this->addReader($iterator);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFields()
+    public function getFields(): array
     {
         return [];
     }
