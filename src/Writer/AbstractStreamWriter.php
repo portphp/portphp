@@ -72,7 +72,7 @@ abstract class AbstractStreamWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function finish()
+    public function finish(): void
     {
         if (is_resource($this->stream) && $this->getCloseStreamOnFinish()) {
             fclose($this->stream);

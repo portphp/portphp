@@ -12,17 +12,17 @@ interface Writer
     /**
      * Prepare the writer before writing the items
      */
-    public function prepare();
+    public function prepare(): void;
 
     /**
      * Write one data item
      *
      * @param array $item The data item with converted values
      */
-    public function writeItem(array $item);
+    public function writeItem(array $item): void;
 
     /**
      * Wrap up the writer after all items have been written
      */
-    public function finish();
+    public function finish(): void;
 }

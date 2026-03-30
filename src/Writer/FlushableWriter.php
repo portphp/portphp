@@ -12,5 +12,5 @@ interface FlushableWriter extends Writer
     /**
      * Flush the output buffer
      */
-    public function flush();
+    public function flush(): void;
 }

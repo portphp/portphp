@@ -29,7 +29,7 @@ class ArrayWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function prepare()
+    public function prepare(): void
     {
         $this->data = [];
     }
@@ -37,7 +37,7 @@ class ArrayWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function writeItem(array $item)
+    public function writeItem(array $item): void
     {
         $this->data[] = $item;
     }
