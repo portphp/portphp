@@ -37,7 +37,9 @@ class ResultSpec extends ObjectBehavior
 
     function it_has_an_elapsed_time()
     {
-        $this->getElapsed()->shouldBeLike(new \DateInterval('P1D'));
+        $elapsed = $this->getElapsed();
+        $elapsed->shouldBeAnInstanceOf(\DateInterval::class);
+        $elapsed->days->shouldBe(1);
     }
 
     function it_has_an_error_count()

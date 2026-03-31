@@ -7,6 +7,8 @@ use Port\ValueConverter\DateTimeValueConverter;
 
 class DateTimeFilterTest extends TestCase
 {
+    private array $items;
+
     public function setUp(): void
     {
         $this->items = array(

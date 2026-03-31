@@ -11,7 +11,7 @@ class CharsetValueConverterTest extends TestCase
 {
     public function testConvert()
     {
-        $utf8 = utf8_encode('test');
+        $utf8 = mb_convert_encoding('test', 'UTF-8');
 
         $converter = new CharsetValueConverter('UTF-8');
         $this->assertEquals($utf8, call_user_func($converter, $utf8));
