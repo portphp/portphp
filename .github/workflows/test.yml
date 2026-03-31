@@ -42,9 +42,3 @@ jobs:
 
       - name: Run phpspec
         run: vendor/bin/phpspec run
-
-      - name: Upload coverage
-        if: matrix.coverage
-        run: |
-          wget https://scrutinizer-ci.com/ocular.phar
-          php ocular.phar code-coverage:upload --format=php-clover coverage.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}
