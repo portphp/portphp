@@ -47,7 +47,7 @@ class DateTimeThresholdFilter
      */
     public function __construct(
         DateTimeValueConverter $valueConverter,
-        \DateTime $threshold = null,
+        ?\DateTime $threshold = null,
         $timeColumnName = 'updated_at',
         $priority = 512
     ) {

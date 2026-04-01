@@ -12,7 +12,7 @@ trait WriterTemplate
     /**
      * {@inheritdoc}
      */
-    public function prepare()
+    public function prepare(): void
     {
 
     }
@@ -20,7 +20,7 @@ trait WriterTemplate
     /**
      * {@inheritdoc}
      */
-    public function finish()
+    public function finish(): void
     {
 
     }

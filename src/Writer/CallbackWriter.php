@@ -29,7 +29,7 @@ class CallbackWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function writeItem(array $item)
+    public function writeItem(array $item): void
     {
         call_user_func($this->callback, $item);
     }

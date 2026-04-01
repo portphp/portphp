@@ -37,7 +37,7 @@ class BatchWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function prepare()
+    public function prepare(): void
     {
         $this->delegate->prepare();
 
@@ -48,7 +48,7 @@ class BatchWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function writeItem(array $item)
+    public function writeItem(array $item): void
     {
         $this->queue->push($item);
 
@@ -60,7 +60,7 @@ class BatchWriter implements Writer
     /**
      * {@inheritdoc}
      */
-    public function finish()
+    public function finish(): void
     {
         $this->flush();
 

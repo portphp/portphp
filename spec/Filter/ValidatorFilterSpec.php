@@ -2,7 +2,7 @@
 
 namespace spec\Port\Filter;
 
-use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -36,8 +36,9 @@ class ValidatorFilterSpec extends ObjectBehavior
         $this->shouldHaveType('Port\Filter\ValidatorFilter');
     }
 
-    function it_validates_an_item(ValidatorInterface $validator, Constraint $constraint, ConstraintViolationList $list)
+    function it_validates_an_item(ValidatorInterface $validator, ConstraintViolationList $list)
     {
+        $constraint = new Constraints\NotBlank();
         $list->count()->willReturn(0);
         $validator->validate($this->item1, Argument::type('Symfony\Component\Validator\Constraints\Collection'))->willReturn($list);
 
@@ -46,8 +47,9 @@ class ValidatorFilterSpec extends ObjectBehavior
         $this->__invoke($this->item1);
     }
 
-    function it_validates_an_item_non_strictly(ValidatorInterface $validator, Constraint $constraint, ConstraintViolationList $list)
+    function it_validates_an_item_non_strictly(ValidatorInterface $validator, ConstraintViolationList $list)
     {
+        $constraint = new Constraints\NotBlank();
         $list->count()->willReturn(0);
         $validator->validate($this->item1, Argument::type('Symfony\Component\Validator\Constraints\Collection'))->willReturn($list);
 
@@ -58,8 +60,9 @@ class ValidatorFilterSpec extends ObjectBehavior
         $this->__invoke($this->item2);
     }
 
-    function it_validates_an_item_and_the_validation_fails(ValidatorInterface $validator, Constraint $constraint, ConstraintViolationList $list)
+    function it_validates_an_item_and_the_validation_fails(ValidatorInterface $validator, ConstraintViolationList $list)
     {
+        $constraint = new Constraints\NotBlank();
         $list->count()->willReturn(1);
         $validator->validate($this->item1, Argument::type('Symfony\Component\Validator\Constraints\Collection'))->willReturn($list);
 
@@ -72,9 +75,9 @@ class ValidatorFilterSpec extends ObjectBehavior
 
     function it_validates_an_item_and_the_validation_fails_with_exception(
         ValidatorInterface $validator,
-        Constraint $constraint,
         ConstraintViolation $violation
     ) {
+        $constraint = new Constraints\NotBlank();
         $violation->getMessage()->willReturn('Oops!');
         $list = new ConstraintViolationList([$violation->getWrappedObject()]);
 

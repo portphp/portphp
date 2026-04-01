@@ -46,7 +46,7 @@ class StreamMergeWriter extends AbstractStreamWriter
     /**
      * {@inheritdoc}
      */
-    public function writeItem(array $item)
+    public function writeItem(array $item): void
     {
         if ((isset($item[$this->discriminantField])
                 || array_key_exists($this->discriminantField, $item))

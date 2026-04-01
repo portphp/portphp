@@ -3,13 +3,16 @@
 namespace spec\Port\Exception;
 
 use PhpSpec\ObjectBehavior;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Symfony\Component\Validator\ConstraintViolationList;
 
 class ValidationExceptionSpec extends ObjectBehavior
 {
-    function let(ConstraintViolationListInterface $list)
+    private $list;
+
+    function let()
     {
-        $this->beConstructedWith($list, 1);
+        $this->list = new ConstraintViolationList();
+        $this->beConstructedWith($this->list, 1);
     }
 
     function it_is_initializable()
@@ -23,9 +26,9 @@ class ValidationExceptionSpec extends ObjectBehavior
         $this->shouldImplement('Port\Exception');
     }
 
-    function it_has_a_list_of_violations(ConstraintViolationListInterface $list)
+    function it_has_a_list_of_violations()
     {
-        $this->getViolations()->shouldReturn($list);
+        $this->getViolations()->shouldReturn($this->list);
     }
 
     function it_has_a_line_number()

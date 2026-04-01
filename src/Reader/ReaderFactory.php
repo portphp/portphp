@@ -16,5 +16,5 @@ interface ReaderFactory
      *
      * @return Reader
      */
-    public function getReader(\SplFileObject $file);
+    public function getReader(\SplFileObject $file): Reader;
 }

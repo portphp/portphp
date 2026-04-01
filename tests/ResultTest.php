@@ -26,8 +26,8 @@ class ResultTest extends TestCase
         $this->assertSame(0, $result->getErrorCount());
 
         $exceptions = new \SplObjectStorage();
-        $exceptions->attach(new \Exception());
-        $exceptions->attach(new \Exception());
+        $exceptions->offsetSet(new \Exception());
+        $exceptions->offsetSet(new \Exception());
         $result = new Result('export', new \DateTime, new \DateTime, 10, $exceptions);
         $this->assertSame(10, $result->getTotalProcessedCount());
         $this->assertSame(8, $result->getSuccessCount());
@@ -50,8 +50,8 @@ class ResultTest extends TestCase
     public function testHasErrorsReturnsTrueIfAnyExceptions()
     {
         $exceptions = new \SplObjectStorage();
-        $exceptions->attach(new \Exception());
-        $exceptions->attach(new \Exception());
+        $exceptions->offsetSet(new \Exception());
+        $exceptions->offsetSet(new \Exception());
 
         $result = new Result('export', new \DateTime, new \DateTime, 10, $exceptions);
         $this->assertTrue($result->hasErrors());
@@ -66,8 +66,8 @@ class ResultTest extends TestCase
     public function testGetExceptions()
     {
         $exceptions = new \SplObjectStorage();
-        $exceptions->attach(new \Exception());
-        $exceptions->attach(new \Exception());
+        $exceptions->offsetSet(new \Exception());
+        $exceptions->offsetSet(new \Exception());
 
         $result = new Result('export', new \DateTime, new \DateTime, 10, $exceptions);
         $this->assertSame($exceptions, $result->getExceptions());
