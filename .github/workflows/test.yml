@@ -33,7 +33,7 @@ jobs:
         run: composer validate --strict --no-check-lock
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: vendor
           key: ${{ runner.os }}-composer-${{ matrix.php-versions }}-${{ hashFiles('**/composer.json') }}
