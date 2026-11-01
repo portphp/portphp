@@ -48,7 +48,7 @@
     "require-dev": {
         "ext-iconv": "*",
         "ext-mbstring": "*",
-        "phpunit/phpunit": "^9.6",
+        "phpunit/phpunit": "^9.6 || ^13.0",
         "phpspec/phpspec": "^8.0",
         "doctrine/instantiator": "^2.0",
         "doctrine/common": "^3.0"
